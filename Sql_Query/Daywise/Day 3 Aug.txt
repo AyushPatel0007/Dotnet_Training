@@ -1,0 +1,92 @@
+Create table tblDept
+(
+ID int primary key,
+DepartmentName nvarchar(50),
+Location nvarchar(50),
+Department nvarchar(50)
+)
+GO
+
+Insert into tblDept values (1,'IT','LONDON','RAM')
+Insert into tblDept values (2,'Finance','US','Pam')
+Insert into tblDept values (3,'HR','New York','Christie')
+Insert into tblDept values (4,'Other Department','Sydney','Nivea')
+
+CREATE table tblemp
+(
+ID int primary key,
+Name nvarchar(50),
+Gender nvarchar(50),
+Salary int,
+DepartmentId int foreign key references tblDept(Id)
+)
+GO
+
+Insert into tblemp values (1,'Terry','Male',4000,1)
+Insert into tblemp values (2,'Pam','Male',3000,3)
+Insert into tblemp values (3,'Jhonny','Male',3500,1)
+Insert into tblemp values (4,'Sammy','Female',6000,2)
+Insert into tblemp values (5,'Toddy','Male',4000,1)
+Insert into tblemp values (6,'Beny','Male',4500,1)
+Insert into tblemp values (7,'Sara','Female',4100,1)
+Insert into tblemp values (8,'Vikas','Female',3000,1)
+Insert into tblemp values (9,'Jakie','Male',2000,null)
+Insert into tblemp values (10,'Rohan','Male',2500,null)
+GO
+
+select*from tblDept
+select*from tblemp
+
+--Cross Join
+select Name,Gender,Salary,DepartmentName from tblemp
+Cross join tblDept
+
+--Inner Join
+select Name,Gender,Salary,DepartmentName from tblemp
+Inner Join tblDept
+on tblemp.ID=tblDept.ID
+
+--Left Join
+
+select Name,Gender,Salary,DepartmentName from tblemp
+left join tblDept
+on tblemp.ID=tblDept.ID
+
+--Right join
+
+select Name,Gender,Salary,DepartmentName from tblemp
+right join tblDept
+on tblemp.ID=tblDept.ID
+
+--Full join
+
+select Name,Gender,Salary,DepartmentName from tblemp
+full join tblDept
+on tblemp.ID=tblDept.ID
+
+--How to retrieve only the non matching rows from the left table 
+select Name,Gender,Salary,DepartmentName from tblemp E
+left join tblDept D
+on E.ID=D.ID
+where D.ID is null
+
+--How to retrieve only the non matching rows from the right table
+select Name,Gender,Salary,DepartmentName from tblemp E
+right join tblDept D
+on E.DepartmentId=D.ID
+where E.DepartmentId=NULL
+
+
+select Name,Gender,Salary,DepartmentName from tblemp E
+left join tblDept D
+on E.DepartmentId=D.Id
+where D.Id is null
+
+
+
+--functionality completion 
+--coding best practises(naming and structure,documentation)
+--presentation and communication
+--technical technology
+--additional functionality bonus point
+ 

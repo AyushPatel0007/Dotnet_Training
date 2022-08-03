@@ -1,0 +1,251 @@
+select Left('abcd',3)
+select reverse('abcdefgh')
+select CHARINDEX('@','saar@aa.com',1)
+select substring('sara@gmal.com',6,7)
+select LEN(RTRIM('hello    '))
+
+select substring('john@bbb.com',(CHARINDEX('@','john@bbb.com')+1),(len('john@bbb.com')-charindex('@','john@bbb.com')))
+
+
+select abs(-15)
+select ceiling(15.2)
+select ceiling(-15.2)
+select floor(15.2)
+select floor(-15.2)
+select power(2,3)
+select square(3)
+select rand(1)
+select sqrt(3)
+
+declare @counter int
+set @counter=1
+while(@counter<=10)
+begin
+print floor(rand()*100)
+set @counter =@counter+1
+end
+
+select round(123.856,0)
+select round(123.856,1)
+select round(123.856,-1)
+select round(123.856,1,2)
+select floor(rand()*100)
+
+select convert(Date,getdate()) as Data
+select cast(getdate()as date)
+
+select EmployeeID,Title,convert(nvarchar,BirthDate) as Bd from Employees
+select EmployeeID,Title,convert(nvarchar,BirthDate,105) as Bd from Employees  --105 is format of date only
+
+select EmployeeID,Title ,Title+'-'+cast(EmployeeID as nvarchar) as[name-id] from Employees
+
+---functionn creation------
+ 
+create function age(@dob Date)
+returns int
+as 
+begin
+ declare @age int
+ set @age = DATEDIFF(year,@dob,getdate())-case when (month(@dob)>month(getdate()))or(month(@dob)=month(getdate()) 
+	 and day(@dob)>day(getdate()))
+	 then 1
+	 else 0
+ end
+ return @age
+end
+
+ 
+select Firstname ,Northwind.dbo.age(BirthDate) from Employees
+
+--FirstName Title Postalcode
+select * from Employees
+----function------
+create function GetEmployees()
+returns table
+as
+return (select * from Employees)
+
+ select EmployeeID from GetEmployees()
+
+
+ ----example------Customer----
+ select * from Customers
+
+
+ create function GetCustomer()
+ returns table
+ return (select CompanyName,City,PostalCode from Customers)
+ select * from GetCustomer()
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ---------Multivalued function
+create function GetmultiEmp()
+returns @emp Table
+(
+FirstName varchar(20),
+Title varchar(20)
+ )
+as
+begin
+insert into @emp select e.FirstName,e.Title  from Employees e;
+update @emp set Title='Developer' where FirstName='Nancy';
+return
+end
+
+select * from Employees
+
+select * from GetmultiEmp()
+
+------example----
+select * from Customers
+
+
+drop function Getmulticust
+create function Getmulticust()
+returns @cust table
+(
+CustomerID nchar(5),
+CompanyName nvarchar(40),
+Address nvarchar(50)
+)
+as
+begin
+insert into @cust select e.CustomerID,e.CompanyName,e.Address from Customers e;
+update @cust set CompanyName='GlobalLogic' where CustomerID like 'A%';
+return
+end
+select * from Getmulticust()
+
+
+
+
+--------------------
+create table DemoEmp(
+Id int primary key,
+Name nvarchar(20),
+DateofBirth datetime,
+Gender nvarchar(19),
+DeptId int
+
+)
+
+insert into DemoEmp values(1,'Sam','1980-12-30 00:00:00.000','Male',1)
+insert into DemoEmp values(2,'Sam2','1972-02-15 00:00:00.000','Female',3)
+select * from DemoEmp
+select Id,Northwind.dbo.age(DateofBirth) from DemoEmp
+
+------------
+
+begin try
+declare @num int
+set @num=5/0
+print 'This will not execute'
+end try
+begin catch
+select error_number() as errornumber;
+end catch;
+go
+select * from master.dbo.
+
+
+
+-------------Stored Procedure---------
+select * from Employees
+create Procedure Getemp
+as
+begin
+select FirstName,Address from Employees
+end
+
+exec Getemp
+
+
+-----------Stored procedure input parameter---
+create proc GetbyCoun
+@ReportsTo int,
+@Country nvarchar(10)
+as
+begin
+select FirstName,Title,Address from Employees  where Country=@Country and ReportsTo=@ReportsTo;
+end
+
+exec GetbyCoun @ReportsTo=2,@Country='USA'
+------------Stored procedure output typr
+
+Alter proc GetEmpl
+@Country nvarchar(20),
+@EmpCount int output
+as
+begin
+select @EmpCount=count(EmployeeID) from Employees Where Country=@Country;
+end
+
+
+Declare @EmpCount int
+exec GetEmpl 'USA',@EmpCount output
+print @EmpCount
+
+---------------------Assignment------------------
+
+select * from Products
+
+create function GetProName()
+returns table
+return (select * from Products);
+select * from GetProName()
+
+-----------------Multistored-----------------------
+
+ Alter function EditProd()
+ returns @emp table
+ (
+	ProductName nvarchar(40),
+	ProductID int 
+ )
+ as 
+ begin
+insert into @emp select p.ProductName,p.ProductID from Products as p;
+update @emp set ProductName='Global' where ProductID=2;
+return 
+end
+
+---------------Parameterized--Procedure------------------------------
+
+ create function FindById(@Id int)
+ returns int 
+ as
+ begin
+ declare @Area int
+ set @Area=@Id*@Id
+ return @Area
+ end
+
+print( dbo.FindById(2))
+
+
+
+------------------Procedure----------------------
+
+
+create proc GetById
+@CategoryID int
+as
+begin
+select * from Products where CategoryID =@CategoryID;
+end
+
+exec GetById @CategoryID=2
+
+
+
+ 
+  
+ 
+

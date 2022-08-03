@@ -1,0 +1,88 @@
+
+----------------1 nf-----------
+create table tblstudent(
+		stu_id int not null ,
+		stu_name varchar(20) null,
+		stu_location varchar(20),
+		stu_salary int null,
+		dept_id int not null ,
+		pro_id int,
+		stu_join_date datetime null
+)
+
+drop table tblstudent
+
+insert into tblstudent values(1,'amit','lucknow',15002,4,1,'12/04/12 10:00:02')
+insert into tblstudent values(2,'ankur','banglore',87054,1,2,'12/04/12 10:00:02')
+insert into tblstudent values(3,'ritik','lucknow',45565,3,1,'12/04/12 10:00:02')
+insert into tblstudent values(4,'anshu','lucknow',56652,2,4,'12/04/12 10:00:02')
+insert into tblstudent values(5,'shaik','banglore',55452,3,6,'12/04/12 10:00:02')
+insert into tblstudent values(6,'moin','chennai',98420,5,1,'12/04/12 10:00:02')
+insert into tblstudent values(7,'ab','lucknow',85632,4,5,'12/04/12 10:00:02')
+insert into tblstudent values(8,'harshit','delhi',12364,1,2,'12/04/12 10:00:02')
+insert into tblstudent values(9,'manan','lucknow',45698,2,3,'12/04/12 10:00:02')
+
+delete from tblstudent where stu_name='manan' 
+
+select * from tblstudent
+
+Alter table tblstudent alter column dept_id int not null
+
+
+------------------2Nf--------------------------------------------
+
+create table nf2(
+stu_id int,
+stu_name varchar(20),
+project_id int ,
+project_name varchar(20)
+)
+insert into nf2 values(1,'lucky',100,'lockdown')
+create table nf21(
+stu_id int,
+stu_name varchar(20),
+project_id int 
+ 
+)
+insert into nf21 values(1,'lucky',100)
+create table nf22(
+ 
+project_id int ,
+project_name varchar(20)
+)
+insert into nf22 values(100,'lockdown')
+
+select * from nf2
+select * from nf21
+select * from nf22
+
+
+
+
+------------Third Nf----------------------------------------------------------
+create table nf3(
+stu_id int,
+stu_name varchar(20),
+stu_pincode varchar(20),
+stu_state varchar(20), 
+stu_city varchar(20)
+)
+
+insert into nf3 values(1,'lucky','2468','up','lko')
+
+create table nf31(
+stu_id int,
+stu_name varchar(20),
+stu_pincode varchar(20)
+)
+
+insert into nf31 values(1,'lucky','2468')
+create table nf32(
+stu_pincode varchar(20),
+stu_state varchar(20), 
+stu_city varchar(20)
+)
+insert into nf32 values('2468','up','lko')
+select * from nf3
+select * from nf31
+select * from nf32

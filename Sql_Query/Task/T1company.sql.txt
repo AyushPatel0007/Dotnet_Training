@@ -1,0 +1,118 @@
+create database Company
+
+drop table Emp
+create table emp(
+		emp_id int not null primary key identity(1,1),
+		emp_name varchar(20) null,
+		emp_location varchar(20),
+		emp_salary int null,
+		dept_id int ,
+		pro_id int,
+		emp_join_date datetime null
+)
+select * from emp
+drop table emp
+insert into emp values('amit','lucknow',15002,4,1,'12/04/12 10:00:02')
+insert into emp values('ankur','banglore',87054,1,2,'12/04/12 10:00:02')
+insert into emp values('ritik','lucknow',45565,3,1,'12/04/12 10:00:02')
+insert into emp values('anshu','lucknow',56652,2,4,'12/04/12 10:00:02')
+insert into emp values('shaik','banglore',55452,3,6,'12/04/12 10:00:02')
+insert into emp values('moin','chennai',98420,5,1,'12/04/12 10:00:02')
+insert into emp values('ab','lucknow',85632,4,5,'12/04/12 10:00:02')
+insert into emp values('harshit','delhi',12364,1,2,'12/04/12 10:00:02')
+insert into emp values('manan','lucknow',45698,2,3,'12/04/12 10:00:02')
+
+insert into emp values('kartk','idelh',54896,4,1,'12/04/12 10:00:02')
+
+
+create table dept(
+	dept_id int not null primary key identity(1,1),
+	dept_name varchar(20) null,
+	dept_grade varchar(1) null
+)
+insert into dept values('cse','a')
+insert into dept values('ec','b')
+insert into dept values('politics','c')
+insert into dept values('law','d')
+insert into dept values('doctor',null)
+
+drop table project
+create table project(
+	pro_id  int not null primary key identity(1,1),
+	pro_name varchar(20) null,
+	pro_date date null,
+	emp_id int null,
+	dept_id int null
+)
+
+insert into project values('chatbox','11/05/07',9,2)
+insert into project values('programmeradda','11/05/07',5,1)
+insert into project values('searched','11/05/07',1,3)
+insert into project values('jobportal','11/05/07',8,5)
+insert into project values('kit','11/05/07',3,4)
+insert into project values('yess','11/05/07',7,2)
+
+
+select * from emp
+select * from dept
+select * from project
+
+
+-------like--
+select * from emp where emp_name like 'mana%'
+select * from emp where emp_name like '__na%'
+
+--in----
+select emp_name from emp where emp_id in(select emp_id from project)
+
+
+--------group by,order by---
+
+select sum(emp_salary),emp_location from emp group by emp_location order by emp_location
+
+---sub query    in-----
+
+select * from emp where pro_id in(select pro_id from project)
+
+
+----between------
+
+select * from emp where emp_salary between 10000 and 50000
+
+
+-----inner join---
+
+select e.emp_id,e.emp_name,p.pro_name from emp as e full outer join project as p on e.emp_id=p.emp_id
+
+----full outer join-----
+
+select e.emp_id,e.emp_name,p.pro_name from emp as e inner join project as p on e.emp_id=p.emp_id
+
+
+----left join---
+
+
+select e.emp_id,e.emp_name,p.pro_name from emp as e left join project as p on e.emp_id=p.emp_id
+
+-----right join-----
+
+select e.emp_id,e.emp_name,p.pro_name from emp as e right join project as p on e.emp_id=p.emp_id
+
+
+---self join----
+
+select e.emp_id,e.emp_name,p.pro_name from emp as e, project as p  where e.emp_id=p.emp_id
+
+
+
+-----union both must havve same column name---
+
+select emp_id from emp  union  select emp_id  from project
+
+----having ----
+select count(pro_id) from project   having count(pro_id)>2
+
+
+---exists----
+
+select emp_name from emp where exists(select emp_id from project)

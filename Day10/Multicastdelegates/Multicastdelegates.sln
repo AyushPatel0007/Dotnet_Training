@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multicastdelegates", "Multicastdelegates\Multicastdelegates.csproj", "{196F20F0-600A-40C3-8B40-217DC5661A26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousParameterDelegate", "..\AnonymousParameterDelegate\AnonymousParameterDelegate.csproj", "{70D68B8A-6F93-410F-8E34-D81957323F3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{196F20F0-600A-40C3-8B40-217DC5661A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196F20F0-600A-40C3-8B40-217DC5661A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196F20F0-600A-40C3-8B40-217DC5661A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196F20F0-600A-40C3-8B40-217DC5661A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D68B8A-6F93-410F-8E34-D81957323F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D68B8A-6F93-410F-8E34-D81957323F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D68B8A-6F93-410F-8E34-D81957323F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D68B8A-6F93-410F-8E34-D81957323F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BA44024-54B9-42EF-80E8-6BD47E361D68}
+	EndGlobalSection
+EndGlobal

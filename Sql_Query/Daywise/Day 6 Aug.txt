@@ -1,0 +1,30 @@
+select * from tblDept
+select * from tblemp
+--
+select * from tblemp where DepartmentId not in(select count(DepartmentId) from tblemp)
+--2nd largest
+select max(Salary) from tblemp where Salary< (select max(Salary) from tblemp)
+----3rd largest
+select max(Salary) from tblemp where Salary< (select max(Salary) from tblemp where Salary<(select max(Salary) from tblemp))
+ 
+ select * from tblemp where DepartmentId not in (select ID from tblDept )
+
+ select count(DepartmentId) from tblemp group by DepartmentId having count(DepartmentId)=1
+
+ select  top 2 * from tblemp ORDER BY Salary desc limit 1;
+
+ Create function DeptNL
+ (
+ @DepartmentName varchar(50),
+ @Location varchar(50)
+ )
+ returns varchar(101)
+ as
+ begin return (select @DepartmentName+' '+@Location);
+ end
+
+ select * from tblDept
+
+ select dbo.DeptNL(DepartmentName,Location) as fullinfo from tblDept
+
+ 

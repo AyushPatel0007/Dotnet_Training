@@ -1,0 +1,197 @@
+ 
+
+using System;
+
+class Program
+{
+    public string concate(string s, string k)
+    {
+        return s + k;
+    }
+    public string toupper(string s)
+    {
+        string res = "";
+        for (int i = 0; i < s.Length; i++)
+        { 
+            if ((s[i] - '\0') >= 97 && (s[i] - '\0') <= 122)
+                res += (char)(s[i] - 32);
+            else
+                res += (s[i]).ToString();
+        }
+        return res;
+    }
+    public string tolower(string s)
+    {
+        string res = "";
+        for (int i = 0; i < s.Length; i++)
+        { 
+            if ((s[i] - '\0') >= 65 && (s[i] - '\0') <= 91)
+                res += (char)(s[i] + 32);
+            else
+                res += (s[i]).ToString();
+        }
+        return res;
+    }
+    public bool compare(string s1, string s2)
+    {
+        if (s1.Length != s2.Length) return false;
+        for (int i = 0; i < s1.Length; i++)
+        {
+            if (s1[i] != s2[i])
+                return false;
+        }
+        return true;
+    }
+    public string removechar(string s, char s1)
+    {
+        string res = "";
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i] != s1)
+            {
+                res += s[i];
+            }
+        }
+        return res;
+    }
+    public string substring(string s, int ss, int f)
+    {
+        string res = "";
+        for (int i = ss; i < f; i++)
+        {
+            res += s[i];
+        }
+        return res;
+    }
+
+    public string rreverse(string myStr)
+    {
+        string rev="";
+        int len;
+        len = myStr.Length - 1;
+        while (len >= 0)
+        {
+            rev = rev + myStr[len];
+            len--;
+        }
+        return rev;
+    }
+
+}
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Program p = new Program();
+        string s = "Hello", k = "World";
+        Console.WriteLine(p.concate(s,k));
+        Console.WriteLine(p.toupper(s));
+        Console.WriteLine(p.tolower(s));
+        Console.WriteLine(p.compare(s, k));
+        Console.WriteLine(p.rreverse("this"));
+        Console.WriteLine(p.removechar(s, 'l'));
+        Console.WriteLine(p.substring(s, 2, 5));
+    }
+}
+
+
+---------------------------***********************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace oopsconcept
+{
+
+
+    abstract class Remote
+    { 
+
+        public void Model(string s)
+        {
+            Console.WriteLine("Model:" + s);
+        }
+        public void processor(string s)
+        {
+            Console.WriteLine("Processor is:" + s);
+        }
+        public void ram(string s)
+        {
+            Console.WriteLine("Ram is:" + s);
+        }
+
+        public abstract void volume();
+
+
+    }
+
+    class Samsung : Remote
+    {
+        public override void volume()
+        {
+            base.Model("samsung");
+            base.processor("i5");
+            base.ram("8Gb");
+            Console.WriteLine("samsung remote uses Increment/decrement volume");
+
+        }
+    }
+    class Lg : Remote
+    {
+        public override void volume()
+        {
+            base.Model("Lg");
+            base.processor("i5");
+            base.ram("8Gb");
+            Console.WriteLine(" Lg remote uses plus/minus volume");
+
+        }
+    }
+    class Mi : Remote
+    {
+        public override void volume()
+        {
+            base.Model("Mi");
+            base.processor("i5");
+            base.ram("8Gb");
+            Console.WriteLine("Mi remote uses Increment/decrement volume");
+
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Mi m = new Mi();
+            Lg l = new Lg();
+            Samsung ss = new Samsung();
+            int n = 0;
+            while (n==0) {
+                Console.WriteLine("1 for Mi detail\n2 For Lg detail \n3 For Samsung");
+                int s = int.Parse(Console.ReadLine());
+                switch (s)
+                {
+                    case 1:
+                        m.volume();
+                        break;
+                    case 2:
+                        l.volume();
+                        break;
+                    case 3:
+                        ss.volume();
+                        break;
+                }
+                Console.WriteLine("Enter 0  continue other to exit");
+                n= int.Parse(Console.ReadLine());
+            }
+             
+
+            
+
+
+        }
+    }
+}

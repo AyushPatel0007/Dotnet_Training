@@ -1,0 +1,67 @@
+create table EmployeeDetails(
+EmpId int not null primary key,
+FullName Varchar(25),
+ManagerId int,
+DateofJoining Date,
+City Varchar(25) null
+)
+
+insert into EmployeeDetails values(121,'Lakshmi',321,'01/31/2001','Hyderbad')
+insert into EmployeeDetails values(321,'Damodaran',986,'01/30/2002','Chennai')
+insert into EmployeeDetails values(421,'Priya',876,'07/11/2003','Banglore')
+insert into EmployeeDetails values(521,'Mahesh',768,'08/09/2004','Mumbai')
+
+select * from EmployeeDetails
+
+create table EmployeeSalary(
+ EmpId int primary key  FOREIGN KEY (EmpId) REFERENCES EmployeeDetails(EmpId),
+ Project varchar(5),
+ Salary int,
+ Variable int
+)
+
+insert into EmployeeSalary values(121,'P1',15000,500)
+insert into EmployeeSalary values(321,'P2',10000,1000)
+insert into EmployeeSalary values(421,'P1',12000,0)
+insert into EmployeeSalary values(521,'P2',9000,600)
+
+
+select * from EmployeeSalary
+
+------1
+select max(Salary) as Highest_salary from EmployeeSalary
+
+select Top 1 Salary as Highest_salary from EmployeeSalary  where salary in(select Top 2 Salary as Highest_salary from EmployeeSalary  order by Salary desc) order by Salary
+
+
+---2
+select Project as Different_Project_Name from EmployeeSalary group by Project
+
+------3
+select EmpId from EmployeeSalary where Salary between 9000 and 15000
+ 
+
+ ------4
+ select distinct count(Empid) from EmployeeSalary where Project in ('P1')
+
+
+ ------5
+ select max(Salary) as Maximum,min(Salary) as Minimum ,avg(Salary)as Average from EmployeeSalary
+
+ ------6
+ select FullName from EmployeeDetails where City='Hyderbad' or ManagerId=
+
+
+ ------7
+ select e.EmpId,e.FullName,e.DateofJoining,s.Project,s.Variable from EmployeeDetails as e Inner Join  EmployeeSalary as s on e.EmpId=s.EmpId
+
+
+ ------8
+ select * from EmployeeSalary  where Project is NULL
+
+ ------9
+ select e.EmpId,e.FullName,e.DateofJoining,s.Project,s.Variable from EmployeeDetails as e Inner Join  EmployeeSalary as s on e.EmpId=s.EmpId
+
+
+ ------10
+ select FullName from EmployeeDetails where Empid in(select ManagerId from EmployeeDetails)
