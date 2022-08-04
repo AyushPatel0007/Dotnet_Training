@@ -59,7 +59,7 @@ namespace StudentDb
                 dp.Fill(dt,"Student");
 
               Console.WriteLine("---------------------Table Data--------------------------------");
-                foreach(DataColumn col in dt.Tables[0].Columns)
+                foreach(DataColumn col in dt.Tables[0].Columns)  
                 {
                     Console.Write(col.ColumnName + " | ");
                 }
