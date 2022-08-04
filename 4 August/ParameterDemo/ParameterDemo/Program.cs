@@ -21,14 +21,8 @@ namespace ParameterDemo
                 SqlCommand cmd = new SqlCommand("Select * from users where Usertype=@us and id>@ii", con);
 
                 con.Open();
-                SqlParameter sp = new SqlParameter();
-                sp.ParameterName = "@us";
-                sp.Value = usertype;
-                cmd.Parameters.Add(sp);
-                SqlParameter sp1 = new SqlParameter();
-                sp1.ParameterName = "@ii";
-                sp1.Value = 3;
-                cmd.Parameters.Add(sp1);
+                cmd.Parameters.Add(new SqlParameter("@us", s));
+                cmd.Parameters.Add(new SqlParameter("ii", 3));
 
                 SqlDataReader sq = cmd.ExecuteReader();
                 while (sq.Read())
