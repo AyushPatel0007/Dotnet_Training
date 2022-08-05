@@ -38,7 +38,7 @@ namespace CustomExceptionTask
                 }
                 else
                 {
-                    if (bk[0].Balance > 500)
+                    if (bk[0].Balance > 500 && bk[0].Balance>bal)
                     {
                         bk[0].Balance -= bal;
                         Console.WriteLine("Available Balance: " + bk[0].Balance);
@@ -48,10 +48,9 @@ namespace CustomExceptionTask
                     {
                         try
                         {
-                            if (bk[0].Balance < 500)
+                            if (bk[0].Balance < 500 )
                                 throw new CheckBalanceException();
-                            Console.WriteLine("Available Balance: " + bk[0].Balance);
-
+ 
                         }
                         catch (CheckBalanceException e)
                         {
@@ -70,7 +69,7 @@ namespace CustomExceptionTask
 
 
             Console.WriteLine("=============================================================================");
-            Console.WriteLine("Name: "+bnk.Name+" \nAccount No: "+bnk.Accountno+" \nBalance is: "+bnk.Balance);
+            Console.WriteLine("Name: "+bnk.Name+" \nAccount No: "+bnk.Accountno+" \nBalance is: " + bk[0].Balance);
              
 
         }

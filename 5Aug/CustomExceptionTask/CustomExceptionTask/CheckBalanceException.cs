@@ -12,9 +12,6 @@ namespace CustomExceptionTask
         {
             Console.WriteLine("Balanace is less than 500");
         }
-        public void Trans()
-        {
-            Console.WriteLine("Write Correct Transaction Type");
-        }
+         
     }
 }
