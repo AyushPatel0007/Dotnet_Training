@@ -1,0 +1,45 @@
+--------------------------Function---------------
+
+select * from Employees
+---------------------------case----------
+select * ,Grade=
+case
+when ReportsTo >2 then 'Under two'
+when ReportsTo<2 then 'Above two'
+else 'equal two'
+end from Employees
+
+------------iif case
+select EmployeeId,LastName,FirstName,iif(ReportsTo>2,'Greater','lesss')as ReportsGrade From Employees
+
+------------int value return the value ----
+
+create function Func1(@id int)
+returns int
+as 
+begin
+
+return (select count(EmployeeID) from Employees)
+end
+
+select dbo.Func1(2)as Other
+
+
+
+------------scalar value return the value ----
+create function Func(@id int)
+returns table
+ 
+return (select * from Employees where EmployeeID>@id);
+
+
+select * from Func(5)
+
+-------------Exists-
+select *from Orders where exists(select 17)
+
+select FirstName from Employees as e where exists(select EmployeeID from Orders as o where o.EmployeeID=e.EmployeeID)
+
+
+
+

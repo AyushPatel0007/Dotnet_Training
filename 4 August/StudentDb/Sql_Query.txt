@@ -1,0 +1,29 @@
+create table Student(
+Id int identity(1,1) primary key,
+Name varchar(25),
+Marks int null,
+Address Varchar(25)
+)
+insert into Student values('Lucky',12,'Lucknow')
+select * from Student
+create proc updatename @id int,@name varchar(25)
+as
+begin
+update Student set Name=@name where Id=@id
+end
+
+create proc updateaddress @id int,@address varchar(25)
+as
+begin
+update Student set Address=@address where Id=@id
+end
+
+create proc updatemarks @id int,@marks int
+as
+begin
+update Student set Marks=@marks where Id=@id
+end
+
+exec updatename @id=2 ,@name='luck'
+exec updatemarks @id=2 ,@marks=40
+exec updateaddress @id=2 ,@address='luckpr'
