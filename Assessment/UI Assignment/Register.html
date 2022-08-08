@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="C:\Users\ayush.patel\Desktop\UI\File.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Register</title>
+  </head>
+  <body>
+<div class="container1">
+	 
+	<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" href="C:/Users/ayush.patel/Desktop/UI/Index.html"><img src="C:/Users/ayush.patel/Desktop/UI/download.png" width="100px" height="70px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-sm-3 navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                       <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" href="C:/Users/ayush.patel/Desktop/UI/Register.html">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" href="C:/Users/ayush.patel/Desktop/UI/Login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+	 
+</div>
+ 
+
+<div id="container">
+<div id="left">
+    <h1 id="welcome">Welcome</h1>
+    <p id="lorem">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Vivamus sodales eros non arcu pellentesque convallis.<br>
+      Nunc dignissim lectus in malesuada porta.<br>
+      Proin ac erat sed urna congue suscipit.<br>
+      Morbi aliquet eget nisl id ornare.
+    </p>
+  </div>
+   
+    <div id="right">
+			<h1 style="text-align:center;padding:12px;">Register</h1>
+			<form name="myform" onsubmit="return validateForm()"method="post">
+						 <input type="text" name="name" id="name" class="client-info">
+			<label for="name">Name</label>
+			<p class="font-weight-bold" id="nameerrr"></p>
+			
+			 <input type="phone" name="mobile" id="mobile" class="client-info">
+			<label for="mobile">Mobile</label>
+			<p class="font-weight-bold" id="mobileerrr"></p>
+
+			
+			<input type="text" name="email" id="email" class="client-info">
+			<label for="email">Email</label>
+			<p class="font-weight-bold" id="emailerrr"></p>
+
+
+
+			<input type="password" name="password" id="password" class="client-info">
+			<label for="password">Password</label>
+			<p class="font-weight-bold" id="perrr"></p>
+			
+			<input type="password" name="cpassword" id="cpassword" class="client-info">
+			<label for="cpassword">Password</label>
+			<p class="font-weight-bold" id="cperrr"></p>
+
+			<input type="submit" id="submit" class="client-info" value="Submit"> 
+			</form>
+			</div>
+			
+			<script>
+			
+			
+			
+			 function validateForm(){
+						 let name=document.getElementById("name");
+						let email=document.getElementById("email");
+						let mobile=document.getElementById("mobile");
+						let p=document.getElementById("password").value;
+						let cp=document.getElementById("cpassword").value;
+						
+						if (name.value =="") {							 
+							document.getElementById('nameerrr').innerHTML="*****Fill the name field*****";
+							return false;
+						}else{
+							document.getElementById('nameerrr').innerHTML="";
+
+						}
+						 
+						if (mobile.value =="") {							 
+							document.getElementById('mobileerrr').innerHTML="**********Fill the mobile field*****";
+							return false;
+						} 
+						else{
+							document.getElementById('mobileerrr').innerHTML="";
+
+						}
+						if (isNaN(mobile.value)){							 
+							document.getElementById('mobileerrr').innerHTML="*****Enter Digit Only*****";
+							return false;
+						}
+						else{
+							document.getElementById('mobileerrr').innerHTML="";
+
+						}
+						
+						if (email.value =="") {							 
+							document.getElementById('emailerrr').innerHTML="*****Fill the email field*****";
+							return false;
+						}else{
+							document.getElementById('emailerrr').innerHTML="";
+
+						}  
+						
+						if(email.value.indexOf('@')<=0){							 
+							document.getElementById('emailerrr').innerHTML="***** @ Invalid Position*****";
+							return false;
+						} else{
+							document.getElementById('emailerrr').innerHTML="";
+
+						}  
+						if(email.value.charAt(email.value.length-4)!='.'&&(email.value.length-3)!='.'){							 
+							document.getElementById('emailerrr').innerHTML="***** . Invalid Positon*****";
+							return false;
+						} else{
+							document.getElementById('emailerrr').innerHTML="";
+
+						} 
+						if (p =="") {							 
+							document.getElementById('perrr').innerHTML="*****Fill the password field*****";
+							return false;
+						} 
+						else{
+							document.getElementById('perrr').innerHTML="";
+
+						} 
+						if(p.length<7) {							 
+							document.getElementById('perrr').innerHTML="*****Enter Strong Password*****";
+							return false;
+						}  else{
+							document.getElementById('perrr').innerHTML="";
+
+						} 
+						if (cp =="") {							 
+							document.getElementById('cperrr').innerHTML="*****Fill the Confirm Password field*****";
+							return false;
+						} else{
+							document.getElementById('cperrr').innerHTML="";
+
+						} 
+						if(cp.length<7) {							 
+							document.getElementById('cperrr').innerHTML="*****Enter Strong Password*****";
+							return false;
+						} else{
+							document.getElementById('cperrr').innerHTML="";
+
+						} 
+						if(cp!=p) {							 
+							document.getElementById('cperrr').innerHTML="*****Password Not Matched*****";
+							return false;
+						} else{
+							document.getElementById('cperrr').innerHTML="";
+
+						} 
+						
+						
+			}
+  </script>
+ 
+
+    </div>
+</div>
+ 
+
+  </body>
+  
+</html>
