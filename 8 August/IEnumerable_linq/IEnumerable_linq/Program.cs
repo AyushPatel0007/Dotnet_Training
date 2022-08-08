@@ -34,7 +34,7 @@ namespace IEnumerable_linq
             {
                 Console.WriteLine(obj.id +"  "+obj.name+" "+obj.gender);
             }
-            //Linq using method
+            //Linq using method 
 
             IQueryable<Student> queryst = st.AsQueryable();
             foreach (var obj in queryst)
