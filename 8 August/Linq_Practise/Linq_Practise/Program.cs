@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Linq_Practise
 {
+    class Dept
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string location{ get; set; }
+
+    }
     class class1
     {
         public int id { get; set; }
@@ -206,13 +213,29 @@ namespace Linq_Practise
             int spe = starr.Count(s => s.age > 12);
             Console.WriteLine(spe);
 
+            Console.WriteLine("--------------------------------------------------------------------");
+            Dept[] str =
+            {
+                new Dept(){id=1,name="Cse",location="indore"},
+                new Dept(){id=2,name="Ec",location="punjab"},
+
+                new Dept(){id=3,name="ee",location="haryana"},
+
+                new Dept(){id=4,name="law",location="kolkata"},
+
+                new Dept(){id=5,name="poltics",location="Up"},
+
+                 new Dept(){id=6,name="poltics",location="Up"},
+
+
+            };
+            var k = str.Select(s => s.name).GroupBy(s=>s.name);
 
 
 
 
 
 
-            
 
 
 
