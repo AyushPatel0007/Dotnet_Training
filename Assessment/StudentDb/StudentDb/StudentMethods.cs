@@ -14,21 +14,7 @@ namespace StudentDb
         public StudentMethods()
         {
            con = Connections();
-            con.Open();
-            try
-            {
-
-                if (con.State!=ConnectionState.Open)
-                       
-                throw new MyException();
-            }catch(MyException e)
-            {
-                e.Connect();
-            }
-            finally
-            {
-                con.Close();
-            }
+             
         }
         public bool Insert(List<StudentVar> st)
         {

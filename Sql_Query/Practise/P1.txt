@@ -1,4 +1,4 @@
---------------------------Function---------------
+ 
 
 select * from Employees
 ---------------------------case----------
@@ -39,6 +39,29 @@ select * from Func(5)
 select *from Orders where exists(select 17)
 
 select FirstName from Employees as e where exists(select EmployeeID from Orders as o where o.EmployeeID=e.EmployeeID)
+
+
+
+-------------transaction------------
+select * from Employees
+begin transaction
+update Employees set FirstName='Ayush' where EmployeeID=7;
+commit transaction
+rollback transaction
+
+begin try
+	begin transaction
+	update Employees set FirstName='Lukcy' where EmployeeID=7;
+	update Employees set ReportsTo=5/0 where EmployeeID=7;
+	commit transaction
+end try
+begin catch
+	rollback transaction
+	print 'rollback for exception'
+end catch
+
+
+ 
 
 
 

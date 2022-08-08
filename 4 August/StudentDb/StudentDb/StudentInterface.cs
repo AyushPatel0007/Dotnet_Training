@@ -12,7 +12,6 @@ namespace StudentDb
         bool Delete(int n);
         bool Count();
         bool Update(int n);
-
         bool Display();
     }
 }

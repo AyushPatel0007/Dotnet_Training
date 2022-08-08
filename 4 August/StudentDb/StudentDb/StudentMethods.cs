@@ -13,7 +13,7 @@ namespace StudentDb
         SqlConnection con;
         public StudentMethods()
         {
-           con = Connections();
+            con = Connections();
             con.Open();
             try
             {
