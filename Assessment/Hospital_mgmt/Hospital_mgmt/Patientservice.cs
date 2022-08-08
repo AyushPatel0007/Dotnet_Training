@@ -151,7 +151,9 @@ namespace Hospital_mgmt
                         Console.Write("Enter Doctor-in-charge");
                         pt[k].Doccharge = Console.ReadLine();
                         break;
-                    case 5:return true;
+                    case 5:
+                        Console.WriteLine("----INVALID OPTION----"); 
+                        return true;
                        
 
                 }
