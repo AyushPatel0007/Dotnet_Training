@@ -8,9 +8,9 @@ namespace Hospital_mgmt
 {
     interface Pinterface
     {
-        bool Add(ref List<Patient> pt);
-        bool Display(ref List<Patient> pt);
-        bool Delete(ref List<Patient> pt);
-        bool Updated(ref List<Patient> pt);
+        bool Add(List<Patient> pt);
+        bool Display(List<Patient> pt);
+        bool Delete(List<Patient> pt);
+        bool Updated(List<Patient> pt);
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Hospital_mgmt
 {
-    class Patientservice:Pinterface
+    class Patientservice
     {
         public Patientservice()
         {
 
         }
-        public bool Add(ref List<Patient> pt)
+        public bool Add(List<Patient> pt)
         {
             
             Console.Write("Enter Name : ");
@@ -32,7 +32,7 @@ namespace Hospital_mgmt
 
         }
 
-        public bool Display(ref List<Patient> pt)
+        public bool Display(List<Patient> pt)
         {
             try
             {
@@ -51,14 +51,14 @@ namespace Hospital_mgmt
 
             foreach (Patient ob in pt)
             {
-                Console.WriteLine(" Name : " + ob._Name() + " Address :" + ob._Addres() + " Disease: " + ob._Disease()+"Roomno : "+ob._Room()+" Doctor Charges: "+ob._Doc()) ;
+                Console.WriteLine(" Name : " + ob._Name() +"|Age: "+ob._Age()+ "| Address :" + ob._Addres() + "| Disease: " + ob._Disease()+"| Roomno : "+ob._Room()+" | Doctor Charges: "+ob._Doc()) ;
             }
             Console.WriteLine("----------------------");
 
             return true;
         }
         
-        public bool Delete(ref List<Patient> pt)
+        public bool Delete(List<Patient> pt)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace Hospital_mgmt
             return true;
         }
 
-        public bool Updated(ref List<Patient> pt)
+        public bool Updated(List<Patient> pt)
         {
             Console.WriteLine("Enter the name to Update the Details:");
             string sn = Console.ReadLine();
@@ -132,7 +132,7 @@ namespace Hospital_mgmt
 
             if (k != -1)
             {
-                Console.WriteLine("1: Update Name 2:Update Address 3:Update Room no: 4:Update Doctor-in-charge ");
+                Console.WriteLine("1: Update Name \n2:Update Address \n3:Update Room no:\n 4:Update Doctor-in-charge \n5:Disease");
                 int n = int.Parse(Console.ReadLine());
                 switch (n) {
                     case 1:
@@ -148,15 +148,20 @@ namespace Hospital_mgmt
                         pt[k].Roomno = int.Parse(Console.ReadLine());
                         break;
                     case 4:
-                        Console.Write("Enter Doctor-in-charge");
+                        Console.Write("Enter Doctor-in-charge: ");
                         pt[k].Doccharge = Console.ReadLine();
                         break;
                     case 5:
+                        Console.Write("Enter Disease: ");
+                        pt[k].Disease = Console.ReadLine();
+                        break;
+                    case 6:
                         Console.WriteLine("----INVALID OPTION----"); 
                         return true;
                        
 
                 }
+                Console.WriteLine("Update successfully");
 
 
             }

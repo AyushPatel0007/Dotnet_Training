@@ -23,10 +23,10 @@ namespace Hospital_mgmt
 
                 switch (n)
                 {
-                    case 1: f = pt.Add(ref p); break;
-                    case 2: f = pt.Display(ref p); break;
-                    case 3: f = pt.Delete(ref p); break;
-                    case 4: f = pt.Updated(ref p); break;
+                    case 1: f = pt.Add(p); break;
+                    case 2: f = pt.Display(p); break;
+                    case 3: f = pt.Delete(p); break;
+                    case 4: f = pt.Updated(p); break;
                     default: f = false; Console.WriteLine("Thanks for visit"); break;
                 }
             }
