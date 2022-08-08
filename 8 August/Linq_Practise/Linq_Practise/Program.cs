@@ -229,7 +229,9 @@ namespace Linq_Practise
 
 
             };
-            var k = str.Select(s => s.name).GroupBy(s=>s.name);
+            int k = str.GroupBy(s=>s.name).Count();
+            Console.WriteLine(k);
+            
 
 
 
