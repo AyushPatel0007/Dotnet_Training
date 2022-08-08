@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hospital_mgmt
 {
-    class Patientservice
+    class Patientservice:Pinterface
     {
         public Patientservice()
         {
