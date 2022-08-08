@@ -190,9 +190,12 @@ namespace Linq_Practise
                 Console.WriteLine(s.ToString());
               
             }
+            Console.WriteLine("-------------------------All----------------------------");
+
 
             bool areAllStudent = starr.All(s => s.age > 12 && s.age < 20);
             Console.WriteLine(areAllStudent);
+            Console.WriteLine("-------------------------Any----------------------------");
 
 
             bool areAllStudent2 = starr.Any(s => s.age > 12 && s.age < 20);
@@ -201,13 +204,16 @@ namespace Linq_Practise
 
             Student std = new Student() { id = 2, name = "harsh"};
             Console.WriteLine(starr.Contains(std));
+            Console.WriteLine("-------------------------Firstordefault----------------------------");
 
             var sp = starr.FirstOrDefault(s => s.name.Contains('a'));
             Console.WriteLine(sp.name);
+            Console.WriteLine("-------------------------Lastordefault----------------------------");
 
 
             var sp1 = starr.LastOrDefault(s => s.name.Contains('a'));
             Console.WriteLine(sp1.name);
+            Console.WriteLine("--------------------------Count----------------------------");
 
 
             int spe = starr.Count(s => s.age > 12);
@@ -225,8 +231,7 @@ namespace Linq_Practise
 
                 new Dept(){id=5,name="poltics",location="Up"},
 
-                 new Dept(){id=6,name="poltics",location="Up"},
-
+                 new Dept(){id=6,name="poltics",location="Up"}
 
             };
             int k = str.GroupBy(s=>s.name).Count();
