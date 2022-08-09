@@ -47,6 +47,10 @@ namespace ExtensionDemo
         {
             return i > value;
         }
+        public static void disp(this int i)
+        {
+            Console.WriteLine(i);
+        }
     }
     class Program
     {
@@ -65,11 +69,13 @@ namespace ExtensionDemo
             ////Console.WriteLine(n);
             //outdemo( n, m,out q);
             //Console.WriteLine(q);
-            int i = 10;
+            //int i = 10;
 
-            bool result = i.IsGreaterThan(100);
+            //bool result = i.IsGreaterThan(100);
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
+            int i = 15;
+            i.disp();
 
         }
         

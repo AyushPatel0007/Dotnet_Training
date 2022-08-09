@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBAprroach", "DBAprroach\DBAprroach.csproj", "{4B9D866E-2920-4ABD-B401-009040CB4680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B9D866E-2920-4ABD-B401-009040CB4680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B9D866E-2920-4ABD-B401-009040CB4680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B9D866E-2920-4ABD-B401-009040CB4680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B9D866E-2920-4ABD-B401-009040CB4680}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63E79C6A-1963-4223-A257-D0BF53D23E86}
+	EndGlobalSection
+EndGlobal
