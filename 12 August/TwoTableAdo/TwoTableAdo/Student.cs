@@ -16,6 +16,5 @@ namespace TwoTableAdo
         public string Spassword { get; set; }
         public Nullable<int> Departments_Did { get; set; }
 
-        public virtual Department Department { get; set; }
     }
 }

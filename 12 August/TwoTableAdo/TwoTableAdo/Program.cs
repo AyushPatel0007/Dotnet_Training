@@ -18,7 +18,7 @@ namespace TwoTableAdo
                 int n = int.Parse(Console.ReadLine());
                 if (n == 1)
                 {
-                    Console.Write("1:Insert 2:Update 3:delete 4:select\n Enter Choice: ");
+                    Console.Write("1:Insert 2:Update 3:delete 4:select\nEnter Choice: ");
                     int k = int.Parse(Console.ReadLine());
                     switch (k) {
                         case 1:f=s.InsertStudent();break;

@@ -13,6 +13,5 @@ namespace TwoTableAdo
         public int Did { get; set; }
         public string Dname { get; set; }
 
-         public virtual ICollection<Student> Students { get; set; }
-    }
+     }
 }
