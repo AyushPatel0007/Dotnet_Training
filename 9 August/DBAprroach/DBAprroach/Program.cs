@@ -13,6 +13,7 @@ namespace DBAprroach
         {
             using(var Context=new demoEntities())
             {
+
                 var result = Context.Students;
                 foreach(var item in result)
                 {

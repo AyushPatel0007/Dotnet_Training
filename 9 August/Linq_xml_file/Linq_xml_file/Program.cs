@@ -27,18 +27,29 @@ namespace Linq_xml_file
 
 
             Console.WriteLine( "--------------------");
-            var st = from element in xele.Descendants("Customer")
-                     select new
+
+
+
+            XElement xel = XElement.Load(@"C:/Users/ayush.patel/Desktop/f1.xml");
+
+            var st = (from element in xel.Descendants("student1")
+                      let id= (int)element.Element("id")
+                      let name= (string)element.Element("name")
+                      select new
                      {
-                         custid = element.Attribute("id").Value,
-                         custname = element.Attribute("name").Value
-                     };
+                         custid =id,
+                         custname = name
+                     });
+
+            int i = 0;
+
             foreach(var s in st)
             {
-                Console.Write(s.custid);
-                Console.WriteLine(s.custname);
-
+                i++;
+                Console.WriteLine(s.custid+" "+s.custname);
+ 
             }
+            
 
         }
     }

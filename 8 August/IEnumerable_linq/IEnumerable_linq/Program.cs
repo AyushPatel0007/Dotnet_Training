@@ -21,9 +21,9 @@ namespace IEnumerable_linq
         {
             List<Student> st = new List<Student>() {
             new Student(){id=1,name="Lucky",gender="male"},
-             new Student(){id=2,name="Jospeh",gender="male"},
-              new Student(){id=3,name="Sandy",gender="male"}
-            };
+                new Student(){id=2,name="Jospeh",gender="male"},
+                new Student(){id=3,name="Sandy",gender="male"}
+         };
 
 
             //Linq using query
