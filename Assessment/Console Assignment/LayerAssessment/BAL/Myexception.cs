@@ -12,5 +12,9 @@ namespace BAL
         {
             Console.WriteLine("Invalid Enter");
         }
+        public void reference()
+        {
+            Console.WriteLine("Reference");
+        }
     }
 }

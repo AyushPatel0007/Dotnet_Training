@@ -9,6 +9,18 @@ namespace DAL
 {
     public class Connect
     {
+
+                //create table Product(
+                //    Pid int primary key identity(1,1),
+                //Pname varchar(25),
+                //Price int,
+                //Cid int FOREIGN KEY REFERENCES Category(Cid)
+                //)
+                //create table Category(
+                //Cid int primary key identity(1,1),
+                //Cname varchar(25),
+                //)
+
         SqlConnection con;
 
         public SqlConnection SqlConnection2()

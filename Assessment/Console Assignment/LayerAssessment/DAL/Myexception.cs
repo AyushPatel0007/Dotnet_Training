@@ -16,5 +16,9 @@ namespace DAL
         {
             Console.WriteLine("------Table Not found---------");
         }
+        public void reference()
+        {
+            Console.WriteLine("Reference");
+        }
     }
 }

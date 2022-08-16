@@ -83,10 +83,11 @@ namespace DAL
                 {
                     return false;
                 }
-
+ 
             }catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                
+                Console.WriteLine("---Foreign key Exception-----\n"+e.Message);
                 return true;
             }
             finally
