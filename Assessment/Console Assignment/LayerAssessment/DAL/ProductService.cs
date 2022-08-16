@@ -10,7 +10,7 @@ using DAL.Entity;
 namespace DAL
 {
     
-    public class ProductService
+    public class ProductService:Interface1
     {
         Connect c = new Connect();
         SqlConnection con = new SqlConnection();

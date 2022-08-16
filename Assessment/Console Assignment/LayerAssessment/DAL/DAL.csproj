@@ -45,6 +45,7 @@
     <Compile Include="Connect.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="Interface.cs" />
     <Compile Include="Myexception.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

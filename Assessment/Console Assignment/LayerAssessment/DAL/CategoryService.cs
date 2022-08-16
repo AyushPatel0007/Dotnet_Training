@@ -9,7 +9,7 @@ using DAL.Entity;
 
 namespace DAL
 {
-    public class CategoryService
+    public class CategoryService:Interface2
     {
         
         SqlConnection con = new SqlConnection();
