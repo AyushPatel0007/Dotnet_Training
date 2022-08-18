@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{080B2B32-763C-4401-A6B9-4A9C0ADB6D88}</ProjectGuid>
+    <ProjectGuid>{BE337092-DB77-482E-9D07-2568CEF20D2B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SqlCrudDemo</RootNamespace>
-    <AssemblyName>SqlCrudDemo</AssemblyName>
+    <RootNamespace>Validation_Crud</RootNamespace>
+    <AssemblyName>Validation_Crud</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44396</IISExpressSSLPort>
+    <IISExpressSSLPort>44302</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -67,26 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Crud.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Operation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crud.aspx.cs">
-      <DependentUpon>Crud.aspx</DependentUpon>
+    <Compile Include="Operation.aspx.cs">
+      <DependentUpon>Operation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Crud.aspx.designer.cs">
-      <DependentUpon>Crud.aspx</DependentUpon>
+    <Compile Include="Operation.aspx.designer.cs">
+      <DependentUpon>Operation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -110,9 +102,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50794</DevelopmentServerPort>
+          <DevelopmentServerPort>54914</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44396/</IISUrl>
+          <IISUrl>https://localhost:44302/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

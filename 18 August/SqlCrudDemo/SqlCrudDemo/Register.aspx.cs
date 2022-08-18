@@ -74,5 +74,49 @@ namespace SqlCrudDemo
             con.Close();
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            DisplayStudent();
+
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            connect();
+            con.Open();
+             int id = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+           string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
+
+            string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
+
+            string password = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
+             int did = int.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text);
+            SqlCommand cmd = new SqlCommand("update students set Sname='" + name+ "',Semail='" + email + "',Spassword='" + password + "',Departments_Did='" + did + "' where Sid='" + id + "'", con);
+             
+            cmd.ExecuteNonQuery();
+            DisplayStudent();
+            con.Close();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            connect();
+            con.Open();
+            int id = int.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text);
+             
+            SqlCommand cmd = new SqlCommand("delete from student where Sid='"+id+"'", con);
+
+            cmd.ExecuteNonQuery();
+            DisplayStudent();
+            con.Close();
+        }
     }
 }
