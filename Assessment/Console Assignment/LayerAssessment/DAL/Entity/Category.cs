@@ -8,7 +8,12 @@ namespace DAL.Entity
 {
     public class Category
     {
-        public int Cid { get; set; }
-        public string Cname { get; set; }
+
+        public string Cid, Cname;
+        public Category(string n)
+        {
+            this.Cname=n;
+        }
+         public string _Cname { get { return Cname; } set { Cname = value; } }
     }
 }

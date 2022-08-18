@@ -21,6 +21,8 @@ namespace BAL
 
                 Console.WriteLine("Enter the Course Name");
                 string n = Console.ReadLine();
+                List<Category> lst = new List<Category>();
+                lst.Add(new Category(n));
                 Category c = new Category() { Cname=n };
 
                 if (d.InsertCategory(c))
