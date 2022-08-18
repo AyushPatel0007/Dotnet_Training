@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WebApplication1")]
+[assembly: AssemblyTitle("LinqToClasses")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GlobalLogic")]
-[assembly: AssemblyProduct("WebApplication1")]
+[assembly: AssemblyProduct("LinqToClasses")]
 [assembly: AssemblyCopyright("Copyright © GlobalLogic 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bf9c6676-de8c-4796-8731-98c7e504076d")]
+[assembly: Guid("28313ec7-e769-4d7f-9f3b-cc2b08552a99")]
 
 // Version information for an assembly consists of the following four values:
 //
