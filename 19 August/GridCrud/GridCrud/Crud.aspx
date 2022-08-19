@@ -9,8 +9,17 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <br />
+            <asp:TextBox ID="TextBox6" runat="server" placeholder="Name"></asp:TextBox>
+            <asp:TextBox ID="TextBox7" runat="server" placeholder="Email"></asp:TextBox>
+            <asp:TextBox ID="TextBox8" runat="server" placeholder="Password"></asp:TextBox>
+            <asp:TextBox ID="TextBox9" runat="server" placeholder="Department Id"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Insert" />
+            <br />
+            <br />
+            <br />
         </div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="248px" Width="938px">
             <Columns>
                 <asp:TemplateField HeaderText="ID" SortExpression="Sid">
                    <ItemTemplate>
@@ -63,6 +72,11 @@
                 <asp:CommandField ButtonType="Button" HeaderText="Delete" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>

@@ -92,5 +92,15 @@ namespace GridCrud
             DisplayStudent();
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            connect();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into students values('" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + int.Parse(TextBox9.Text) + "')", con);
+            cmd.ExecuteNonQuery();
+            DisplayStudent();
+            con.Close();
+        }
     }
 }
