@@ -70,8 +70,9 @@
                      <td class="auto-style2">Confirm Password</td>
                      <td class="auto-style7">
                          <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="**Enter the confirm password**" ForeColor="Red"></asp:RequiredFieldValidator>
+                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="**Enter the confirm password**" ForeColor="Red"></asp:RequiredFieldValidator>
+                     &nbsp;&nbsp;&nbsp;
+                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox3" ControlToValidate="TextBox4" ErrorMessage="*Password Not match**"></asp:CompareValidator>
                      </td>
                  </tr>
                  <tr>
@@ -104,7 +105,7 @@
                  </tr>
              </table>
              <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating"  width="800px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit1" >  
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating"  width="800px"  OnRowCancelingEdit="GridView1_RowCancelingEdit1" >  
             <Columns>  
                 
                 <asp:TemplateField HeaderText="ID">  

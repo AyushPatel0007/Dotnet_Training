@@ -40,8 +40,7 @@ namespace DAL
                 }
 
             }
-            return true;
-        }
+         }
 
 
         public DataTable DisplayCategory()
@@ -97,8 +96,7 @@ namespace DAL
                     con.Close();
                 }
             }
-            return true;
-        }
+         }
         public bool UpdateCategory(int id,string s)
         {
             try
@@ -123,8 +121,7 @@ namespace DAL
                     con.Close();
                 }
             }
-            return true;
-        }
+         }
 
     }
 }

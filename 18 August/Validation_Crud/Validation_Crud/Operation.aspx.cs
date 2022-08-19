@@ -30,14 +30,12 @@ namespace Validation_Crud
             if (!IsPostBack)
             {
                 DisplayStudent();
+
             }
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+         
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -62,7 +60,6 @@ namespace Validation_Crud
             //updating the record  
             SqlCommand cmd = new SqlCommand("update students set Sname='" + name.Text + "',Semail='" + email.Text + "',Spassword='" + pswd.Text + "',Departments_Did='" + int.Parse(did.Text) + "' where Sid='" + int.Parse(id.Text) + "'", con);
             cmd.ExecuteNonQuery();
-
             GridView1.EditIndex = -1;
             DisplayStudent();
             con.Close();
@@ -88,6 +85,11 @@ namespace Validation_Crud
             cmd.ExecuteNonQuery();
             DisplayStudent();
             con.Close();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

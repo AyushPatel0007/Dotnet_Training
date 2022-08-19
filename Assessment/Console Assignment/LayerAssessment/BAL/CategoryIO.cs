@@ -21,8 +21,7 @@ namespace BAL
 
                 Console.WriteLine("Enter the Course Name");
                 string n = Console.ReadLine();
-                List<Category> lst = new List<Category>();
-                lst.Add(new Category(n));
+                
                 Category c = new Category() { Cname=n };
 
                 if (d.InsertCategory(c))
@@ -67,9 +66,9 @@ namespace BAL
                 }
 
             }
-            catch (FormatException e)
+            catch (FormatException ex)
             {
-                Console.WriteLine("Invalid Format");
+                Console.WriteLine("Invalid Format",ex.Message);
             }
             return true;
         }

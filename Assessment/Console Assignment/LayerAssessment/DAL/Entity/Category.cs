@@ -14,6 +14,10 @@ namespace DAL.Entity
         {
             this.Cname=n;
         }
+        public Category()
+        {
+
+        }
          public string _Cname { get { return Cname; } set { Cname = value; } }
     }
 }

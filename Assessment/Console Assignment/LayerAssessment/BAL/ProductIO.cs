@@ -47,9 +47,9 @@ namespace BAL
                 };
                 d.InsertProduct(pro);
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine("---------Course Id not present-----------");
+                Console.WriteLine("---------Course Id not present-----------",ex.Message);
                goto test1;
             }
             return true;
@@ -113,7 +113,7 @@ namespace BAL
             }
             catch (FormatException ex)
             {
-                Console.WriteLine("---------Invalid Enter--");
+                Console.WriteLine("---------Invalid Enter--",ex.Message);
             }
             catch (Myexception e)
             {
