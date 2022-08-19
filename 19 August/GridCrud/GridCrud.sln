@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridCrud", "GridCrud\GridCrud.csproj", "{52340F2F-B05F-4CEB-8542-1DF9324E16ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2D472BB9-5131-483E-8A83-43B891998DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{441A85AD-8193-4346-945F-24A8BB6BD432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{52340F2F-B05F-4CEB-8542-1DF9324E16ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52340F2F-B05F-4CEB-8542-1DF9324E16ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52340F2F-B05F-4CEB-8542-1DF9324E16ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D472BB9-5131-483E-8A83-43B891998DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D472BB9-5131-483E-8A83-43B891998DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D472BB9-5131-483E-8A83-43B891998DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D472BB9-5131-483E-8A83-43B891998DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441A85AD-8193-4346-945F-24A8BB6BD432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441A85AD-8193-4346-945F-24A8BB6BD432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441A85AD-8193-4346-945F-24A8BB6BD432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441A85AD-8193-4346-945F-24A8BB6BD432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

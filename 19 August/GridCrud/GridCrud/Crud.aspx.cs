@@ -6,32 +6,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using BAL;
 namespace GridCrud
 {
     public partial class Crud : System.Web.UI.Page
     {
-        SqlConnection con;
-        public void connect()
-        {
-            con = new SqlConnection("Data Source=DEL1-LHP-N82207\\MSSQLSERVER01;Initial Catalog=demo5;Integrated Security=True");
-        }
+        StudentIO s = new StudentIO();
+        
         public void DisplayStudent()
         {
-            connect();
-            con.Open();
-            SqlDataAdapter cmd = new SqlDataAdapter("select * from Students", con);
-            DataTable dt = new DataTable();
-            cmd.Fill(dt);
-            if (dt.Rows.Count>0)
-            {
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-
-            }
+             
+            
+            GridView1.DataSource = s.Displaystudent();
+            GridView1.DataBind();
+             
 
             
-            con.Close();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,11 +41,7 @@ namespace GridCrud
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Label id = GridView1.Rows[e.RowIndex].FindControl("Label1") as Label;
-            connect();
-            con.Open();
-            SqlCommand cmd = new SqlCommand("delete from Students where Sid='" + Convert.ToInt32(id.Text) + "'", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            s.Deletestudent(Convert.ToInt32(id.Text));  
             DisplayStudent();
 
         }
@@ -75,14 +61,11 @@ namespace GridCrud
             TextBox email = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
             TextBox pswd = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
             TextBox did = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
-            connect();
-            con.Open();
-            SqlCommand cmd = new SqlCommand("update students set Sname='" + name.Text + "',Semail='" + email.Text + "',Spassword='" + pswd.Text + "',Departments_Did='" + int.Parse(did.Text) + "' where Sid='" + int.Parse(id.Text) + "'", con);
-            cmd.ExecuteNonQuery();
 
+            s.Updatestudent(int.Parse(id.Text), name.Text, email.Text, pswd.Text, int.Parse(did.Text));
             GridView1.EditIndex = -1;
             DisplayStudent();
-            con.Close();
+            
 
         }
 
@@ -95,12 +78,8 @@ namespace GridCrud
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            connect();
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into students values('" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + int.Parse(TextBox9.Text) + "')", con);
-            cmd.ExecuteNonQuery();
+            s.Insertstudent(TextBox6.Text, TextBox7.Text, TextBox8.Text, int.Parse(TextBox9.Text));
             DisplayStudent();
-            con.Close();
-        }
+         }
     }
 }
