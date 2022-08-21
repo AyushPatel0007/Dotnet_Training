@@ -4,11 +4,39 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css" integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous"/>
+    <style>
+    .intro {
+  width: 30%;
+  border: none;
+  font-size: 20px;
+}
+
+.intro label, .intro input {
+  display: block;
+}
+
+.intro input {
+  margin: 1em 0;
+  padding: 10px;
+  width: 80%;
+}
+
+.intro label {
+  margin-left: 10px;
+}
+.intro button:hover{
+    background-color:grey;
+    color:white;
+}
+
+
+    </style>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="intro">
             <br />
             <asp:TextBox ID="TextBox6" runat="server" placeholder="Name"></asp:TextBox>
             <asp:TextBox ID="TextBox7" runat="server" placeholder="Email"></asp:TextBox>

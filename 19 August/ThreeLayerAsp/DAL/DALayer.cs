@@ -48,8 +48,6 @@ namespace DAL
         //    DataTable dt = new DataTable();
         //    sq.Fill(dt);
         //    dt.AcceptChanges();
-
-
         //    return true;
         //}
     }

@@ -19,6 +19,7 @@ namespace BAL
         }
         public void Updatestudent(int id, string n, string e, string p, int d)
         {
+
             s.UpdateData(id,n,e,p,d);
         }
         public string Insertstudent(string n, string e, string p, int d)

@@ -34,7 +34,7 @@ namespace DAL
         {
             connect();
             con.Open();
-            SqlDataAdapter cmd = new SqlDataAdapter("delete from students where Sid='" + 2 + "'", con);
+            SqlDataAdapter cmd = new SqlDataAdapter("delete from students where Sid='" + id + "'", con);
             DataTable dt = new DataTable();
             cmd.Fill(dt);
            
