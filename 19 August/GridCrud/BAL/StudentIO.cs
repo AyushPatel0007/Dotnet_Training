@@ -21,9 +21,9 @@ namespace BAL
         {
             s.UpdateData(id,n,e,p,d);
         }
-        public void Insertstudent(string n, string e, string p, int d)
+        public string Insertstudent(string n, string e, string p, int d)
         {
-            s.InsertData(n,e, p, d);
+           return s.InsertData(n,e, p, d);
         }
     }
 }

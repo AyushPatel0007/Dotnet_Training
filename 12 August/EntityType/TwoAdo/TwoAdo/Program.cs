@@ -13,7 +13,7 @@ namespace TwoAdo
             Getuser();
             //AddUser();
             
-            //DeleteUser();
+            DeleteUser();
            
             //UpdateUser();
             Getuser();
@@ -49,7 +49,7 @@ namespace TwoAdo
         {
             using(var con=new UserEntities())
             {
-                var res = con.Students.SingleOrDefault(x => x.Sid == 3);
+                var res = con.Students.SingleOrDefault(x => x.Sid == 36);
                 con.Students.Remove(res);
                 if (con.SaveChanges()>0)
                 {
@@ -66,7 +66,7 @@ namespace TwoAdo
        {
             using(var con=new UserEntities())
             {
-                var res = con.Students.SingleOrDefault(x => x.Sid == 4);
+                var res = con.Students.SingleOrDefault(x => x.Sid == 7);
                 res.Sname = "Ayush";
                 res.Department.Dname = "cse";
                 if (con.SaveChanges() > 0)

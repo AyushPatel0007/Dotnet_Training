@@ -61,7 +61,6 @@ namespace GridCrud
             TextBox email = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
             TextBox pswd = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
             TextBox did = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
-
             s.Updatestudent(int.Parse(id.Text), name.Text, email.Text, pswd.Text, int.Parse(did.Text));
             GridView1.EditIndex = -1;
             DisplayStudent();
@@ -78,7 +77,12 @@ namespace GridCrud
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            s.Insertstudent(TextBox6.Text, TextBox7.Text, TextBox8.Text, int.Parse(TextBox9.Text));
+           string res= s.Insertstudent(TextBox6.Text, TextBox7.Text, TextBox8.Text, int.Parse(TextBox9.Text));
+            Response.Write("<script>alert('"+res+"')</script>");
+            TextBox6.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox9.Text = "";
             DisplayStudent();
          }
     }

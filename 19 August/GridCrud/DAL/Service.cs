@@ -48,13 +48,20 @@ namespace DAL
             DataTable dt = new DataTable();
             cmd.Fill(dt);
         }
-        public void InsertData(string n, string e, string p, int d)
+        public string InsertData(string n, string e, string p, int d)
         {
-            connect();
-            con.Open();
-            SqlDataAdapter cmd = new SqlDataAdapter("insert into students values('"+n+"','"+e+"','"+p+"','"+d+"')", con);
-            DataTable dt = new DataTable();
-            cmd.Fill(dt);
+            try
+            {
+                connect();
+                con.Open();
+                SqlDataAdapter cmd = new SqlDataAdapter("insert into students values('" + n + "','" + e + "','" + p + "','" + d + "')", con);
+                DataTable dt = new DataTable();
+                cmd.Fill(dt);
+            }catch(Exception ex)
+            {
+                return "*****Foreign key*****";
+            }
+            return "*****Inserted*****";
         }
 
     }

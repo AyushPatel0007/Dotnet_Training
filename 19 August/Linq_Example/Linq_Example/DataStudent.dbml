@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="demo5" Class="DataStudentDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DEL1-LHP-N82207\MSSQLSERVER01;Initial Catalog=demo5;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="demo5ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Students" Member="Students">
+    <Type Name="Student">
+      <Column Name="Sid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sname" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Semail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Spassword" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Departments_Did" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
