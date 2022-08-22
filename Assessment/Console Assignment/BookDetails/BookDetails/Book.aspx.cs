@@ -25,7 +25,8 @@ namespace BookDetails
         }
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex; DisplayData();
+            GridView1.EditIndex = e.NewEditIndex; 
+            DisplayData();
 
         }
 
@@ -57,13 +58,25 @@ namespace BookDetails
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-             Label id = GridView1.Rows[e.RowIndex].FindControl("label2") as Label;
-            TextBox name = GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
-            TextBox author = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
-            TextBox publisher = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
-            TextBox price = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
-            b.UpdateData(int.Parse(id.Text), name.Text, author.Text, publisher.Text, int.Parse(price.Text));
-            GridView1.EditIndex = -1;
+            string res = "";
+            try
+            {
+                Label id = GridView1.Rows[e.RowIndex].FindControl("label2") as Label;
+                TextBox name = GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
+                TextBox author = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
+                TextBox publisher = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
+                TextBox price = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
+                res=b.UpdateData(int.Parse(id.Text), name.Text, author.Text, publisher.Text, int.Parse(price.Text));
+                GridView1.EditIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+                GridView1.EditIndex = -1;
+
+                DisplayData();
+            }
+            Response.Write("<script>alert('" + res + "')</script>");
             DisplayData();
         }
 
