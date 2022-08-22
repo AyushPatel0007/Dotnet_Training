@@ -1,0 +1,56 @@
+create table BookDetails(
+Bookid int not null,
+Bookname varchar(25),
+Author varchar(25),
+Publisher varchar(25),
+Price int
+)
+
+drop table InsertBook
+
+create Proc InsertBook
+@Bookid int,
+@Bookname varchar(25),
+@Author varchar(25),
+@Publisher varchar(25),
+@Price int
+as
+begin
+insert into BookDetails values(@Bookid,@Bookname,@Author,@Publisher,@Price)
+end
+
+select * from BookDetails
+
+
+create Proc DeleteBook
+@Bookid int 
+as
+begin
+Delete from BookDetails where Bookid=@Bookid
+end
+
+create Proc SelectBook 
+as
+begin
+select * from BookDetails
+end
+
+drop proc UpdateBook
+create Proc UpdateBook
+@Bookid int,
+@Bookname varchar(25),
+@Author varchar(25),
+@Publisher varchar(25),
+@Price int
+as
+begin
+update BookDetails set Bookname=@Bookname,Author=@Author,Publisher=@Publisher,Price=@Price where Bookid=@Bookid;
+end
+
+
+create Proc DeleteBook
+@id int
+as
+begin
+delete from BookDetails where Bookid=@id
+truncate table BookDetails

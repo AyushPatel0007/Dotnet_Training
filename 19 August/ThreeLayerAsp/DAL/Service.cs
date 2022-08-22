@@ -15,15 +15,19 @@ namespace DAL
         public bool Add(string n, string e, string p, int i)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("InsertStudent", con);
+            SqlCommand cmd=new SqlCommand("InsertStudent", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@name", n));
             cmd.Parameters.Add(new SqlParameter("@email", e));
             cmd.Parameters.Add(new SqlParameter("@password", p));
             cmd.Parameters.Add(new SqlParameter("@did", i));
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            da.Fill(dt);
 
-            cmd.ExecuteNonQuery();
-            con.Close();
+            
+            
             return true;
 
         }
@@ -64,22 +68,15 @@ namespace DAL
 
         }
 
-        public SqlDataReader Display( )
+        public DataTable Display( )
         {
              con.Open();
-            SqlCommand cmd = new SqlCommand("select * from students", con);
-            var r=cmd.ExecuteReader();
-            //while(r.Read())
-            //{
-            //    st.Add(new Student());
-            //    st[st.Count].id = int.Parse(r[0].ToString());
-            //    st[st.Count].name = r[1].ToString();
-            //    st[st.Count].email = r[2].ToString();
-            //    st[st.Count].password = r[3].ToString();
-            //    st[st.Count].did = int.Parse(r[4].ToString());
-
-            //}
-            return r;
+            SqlCommand cmd = new SqlCommand("SelectStudent", con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
             con.Close();
 
         }
