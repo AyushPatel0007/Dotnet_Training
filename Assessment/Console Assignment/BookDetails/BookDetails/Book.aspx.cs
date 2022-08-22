@@ -14,7 +14,6 @@ namespace BookDetails
         BookIO b = new BookIO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
                 DisplayData();
         }
@@ -44,7 +43,6 @@ namespace BookDetails
             }
             Response.Write("<script>alert('" + res + "')</script>");
             DisplayData();
-
 
         }
 

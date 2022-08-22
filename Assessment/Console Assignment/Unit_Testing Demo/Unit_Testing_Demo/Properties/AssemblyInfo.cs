@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hospital_mgmt")]
+[assembly: AssemblyTitle("Unit_Testing_Demo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GlobalLogic")]
-[assembly: AssemblyProduct("Hospital_mgmt")]
+[assembly: AssemblyProduct("Unit_Testing_Demo")]
 [assembly: AssemblyCopyright("Copyright © GlobalLogic 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bf082a02-d2ca-46bd-8105-6d62cf7913bc")]
+[assembly: Guid("65667dc7-e9aa-4d57-a1d4-4ebd6adb0af2")]
 
 // Version information for an assembly consists of the following four values:
 //
