@@ -13,7 +13,7 @@ namespace View_Demo.Controllers
         //GET: Employee
         public ActionResult GetAllData()
         {
-            ViewData["r"] = new EmployeeBusinessLayer().GetAllDetail().ToList();
+            ViewData["r"] = new EmployeeBusinessLayer().GetAllDetail().Where(x => x.Empid == 1).ToList();
             return View();
         }
 
