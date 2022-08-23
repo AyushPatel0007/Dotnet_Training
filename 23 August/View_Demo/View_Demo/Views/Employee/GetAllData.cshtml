@@ -1,0 +1,33 @@
+﻿@model View_Demo.Models.Employees
+
+@{
+    Layout = null;
+}
+ 
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @{ var res = ViewData["r"] as View_Demo.Models.Employees;}
+
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllData</title>
+</head>
+<body>
+     <div>
+        <h4>Employees</h4>
+        <hr />
+        <ul>
+            @foreach (var i in (List<View_Demo.Models.Employees>)ViewData["r"])
+            {
+                <li>@i.Name</li>
+            }
+        </ul>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

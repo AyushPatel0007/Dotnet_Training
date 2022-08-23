@@ -1,0 +1,21 @@
+﻿@model View_Demo.Models.Employees
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllData1</title>
+</head>
+<body>
+    <div>
+       @foreach(var i  in ViewBag.r)
+            {
+                <li>@i.Name</li>
+            }
+    </div>
+</body>
+</html>
