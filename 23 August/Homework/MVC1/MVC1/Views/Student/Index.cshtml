@@ -1,0 +1,17 @@
+﻿@using MVC1.Models
+@model MVC1.Models.Student
+@{
+    ViewBag.Title = "Index";
+}
+
+@{int var = 1;
+}
+
+@{ if (var == 1) { <h1>First</h1>} else {< h1 > second </ h1 > } }
+
+@{int t = 5;}
+@for(int i = 1; i < 10; i++)
+            {
+                <h2>@(t*i)</h2>
+            }
+

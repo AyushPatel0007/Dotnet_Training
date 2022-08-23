@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@helper Mylisthelper(string[] str) { 
+    <ul>@foreach(var item in str)
+    {
+        <li>@item</li>
+    }</ul>
+    }
+
+
+@Mylisthelper(new string[] {"ayush","subreray","lucky"})

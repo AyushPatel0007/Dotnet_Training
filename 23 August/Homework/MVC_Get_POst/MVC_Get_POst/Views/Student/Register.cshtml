@@ -1,0 +1,41 @@
+﻿
+@model MVC_Get_POst.Models.Student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("GetRegister", "Student")) { 
+            <input type="Text" name="first"/><br />
+            <input type="Text" name="second" /><br />
+            <input type="submit"  value="Submit"/>
+
+        }
+    </div>
+
+
+    <div>
+        <h5>Form for class</h5>
+        <div>
+            @using (Html.BeginForm("GetRegister", "Student",FormMethod.Post))
+            {
+                @Html.TextBoxFor(x => x.id)<br />
+                @Html.TextBoxFor(x => x.Name)<br />
+                @Html.TextBoxFor(x => x.Address)<br />
+                <input type="submit" value="Submit" />
+
+            }
+        </div>
+
+    </div>
+</body>
+</html>

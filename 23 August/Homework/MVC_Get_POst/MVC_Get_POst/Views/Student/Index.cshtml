@@ -1,0 +1,27 @@
+﻿@model MVC_Get_POst.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Submit</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Submit", "Student", FormMethod.Post))
+        {
+            @Html.TextBox("id")<br />
+            @Html.ValidationMessage("id")<br />
+            @Html.TextBox("Name")<br />
+            @Html.ValidationMessage("Name")<br />
+            @Html.TextBox("Address")<br />
+            @Html.ValidationMessage("Address")<br />
+            <input type="submit" value="sub,it" />
+        }
+    </div>
+</body>
+</html>
