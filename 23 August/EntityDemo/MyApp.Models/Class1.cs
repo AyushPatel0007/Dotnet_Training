@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyAppDb.Operation
+namespace MyApp.Models
 {
-    internal class Service
+    public class Class1
     {
     }
 }

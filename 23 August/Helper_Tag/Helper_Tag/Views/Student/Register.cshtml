@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h3 style="text-align:center">Register Data</h3>
+
+<div>
+    <table>
+
+        @using (Html.BeginForm("Getdata", "Student", FormMethod.Post))
+        {
+            <tr>
+                <td>
+                    @Html.Label("Name", "Name", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBox("Name", "", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Email", "E-mail", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBox("Email", "", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Password", "Password", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBox("Password", "", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Gender", "Gender", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.RadioButton("Gender", "Male")    Male
+                    @Html.RadioButton("Gender", "Female") Female
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Training", "Traing", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.CheckBox("Training", "Testing")    Testing<br />
+                    @Html.CheckBox("Training", "Developer")  Developer
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    @Html.Label("Skills", "Skills", new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.ListBox("Skills", new List<SelectListItem> {
+                   new SelectListItem{Text= "C#",Value="1"},
+                   new SelectListItem{ Text="ASP.NET",Value="2" },
+                   new SelectListItem{ Text="ASP.NET Core",Value="3" },
+                   new SelectListItem{ Text="Azure",Value="4" }
+                    })
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="Submit" />
+                </td>
+            </tr>
+
+
+
+
+        }
+    </table>
+
+</div>

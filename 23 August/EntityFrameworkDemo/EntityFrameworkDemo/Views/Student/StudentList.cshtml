@@ -1,0 +1,36 @@
+﻿@model List<EntityFrameworkDemo.Context.Student>
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Dept id</th>
+        <th>Edit</th>
+
+    </tr>
+    @foreach(var r in Model)
+    {
+        <tr>
+
+            <td>@r.Sid</td>
+            <td>@r.Sname</td>
+            <td>@r.Semail</td>
+            <td>@r.Spassword</td>
+            <td>@r.Departments_Did</td>
+            <td>
+                <a href="@Url.Action("StudentForm", new {r.Sid,r.Sname,r.Semail,r.Spassword,r.Departments_Did})"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="@Url.Action("Delete",new {r.Sid})"><i class="glyphicon glyphicon-trash"></i></a>
+
+            </td>
+        </tr>
+    }
+
+
+</table>

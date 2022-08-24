@@ -186,6 +186,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyApp.Models\MyApp.Models.csproj">
+      <Project>{30006fdf-f533-4302-8bf1-c895d2622af1}</Project>
+      <Name>MyApp.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyAppDb\MyAppDb.csproj">
       <Project>{51f490e1-646e-40e7-a38e-1b84a4c5b4f7}</Project>
       <Name>MyAppDb</Name>

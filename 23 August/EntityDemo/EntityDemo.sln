@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityDemo", "EntityDemo\En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppDb", "MyAppDb\MyAppDb.csproj", "{51F490E1-646E-40E7-A38E-1B84A4C5B4F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Models", "MyApp.Models\MyApp.Models.csproj", "{30006FDF-F533-4302-8BF1-C895D2622AF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{51F490E1-646E-40E7-A38E-1B84A4C5B4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51F490E1-646E-40E7-A38E-1B84A4C5B4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51F490E1-646E-40E7-A38E-1B84A4C5B4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30006FDF-F533-4302-8BF1-C895D2622AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30006FDF-F533-4302-8BF1-C895D2622AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30006FDF-F533-4302-8BF1-C895D2622AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30006FDF-F533-4302-8BF1-C895D2622AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
