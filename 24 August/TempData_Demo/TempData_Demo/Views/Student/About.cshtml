@@ -1,13 +1,30 @@
 ﻿@model dynamic
 @using TempData_Demo.Models
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Index";
 }
 
-<h2>About</h2>
+<h2>Index</h2>
+@ViewBag.r
  
-@{Html.RenderAction("Index", "Student");
 
+
+<div class="row">
+
+    <div class="col-lg-4">
+        <h4>Id</h4>
+    </div>
+    <div class="col-lg-4">
+        <h4>Name</h4>
+    </div>
+    <div class="col-lg-4">
+        <h4>Email</h4>
+    </div>
+</div>
+
+@foreach (Student s in Model.Student)
+{
+    @Html.Partial("_Card", s)
 }
 
 
@@ -44,4 +61,6 @@
 
 
 
+
+@**Html.Partial("ViewEmp", (object)Model.Employee);**@
 

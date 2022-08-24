@@ -14,22 +14,23 @@ namespace TempData_Demo.Controllers
         {
             List<Student> st = new List<Student>() {
                new Student(){Id=1,Name="Ayush",Email="ayu"},
-                new Student(){Id=2,Name="Ayush2",Email="ayu2"},
-                 new Student(){Id=3,Name="Ayush3",Email="ayu3" }
+               new Student(){Id=2,Name="Ayush2",Email="ayu2"},
+               new Student(){Id=3,Name="Ayush3",Email="ayu3" }
             };
             Employee e = new Employee() { EmpName = "ayush" };
             dynamic model = new System.Dynamic.ExpandoObject();
             model.Student = st;
             model.Employee = e;
-
-            return View();
+            return View(model);
         }
         public PartialViewResult About()
         {
             List<Student> st = new List<Student>() {
                new Student(){Id=1,Name="Ayush",Email="ayu"},
-                new Student(){Id=2,Name="Ayush2",Email="ayu2"},
-                 new Student(){Id=3,Name="Ayush3",Email="ayu3" }
+               new Student(){Id=2,Name="Ayush2",Email="ayu2"},
+               new Student(){Id=3,Name="Ayush3",Email="ayu3" },
+               new Student(){Id=4,Name="Ayush4",Email="ayu4" }
+
             };
             Employee e = new Employee() { EmpName = "ayush" };
             dynamic model = new System.Dynamic.ExpandoObject();
