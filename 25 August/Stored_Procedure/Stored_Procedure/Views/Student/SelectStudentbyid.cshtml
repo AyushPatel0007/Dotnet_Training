@@ -1,0 +1,50 @@
+﻿@model Stored_Procedure.Context.SelectbyId_Result
+
+@{
+    ViewBag.Title = "SelectStudentbyid";
+}
+
+<h2>SelectStudentbyid</h2>
+
+<div>
+    <h4>SelectbyId_Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departments_Did)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departments_Did)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Sid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

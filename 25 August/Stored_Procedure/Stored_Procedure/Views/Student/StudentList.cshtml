@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Stored_Procedure.Context.SelectStudent_Result>
+
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departments_Did)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departments_Did)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Register", new { Sid=item.Sid,Sname=item.Sname,Semail= item.Semail, Spassword=item.Spassword, Departments_Did=item.Departments_Did }) 
+            @Html.ActionLink("Details", "SelectStudentbyid", new { id=item.Sid }) |
+            @Html.ActionLink("Delete", "DeleteStudent", new { id=item.Sid })
+        </td>
+    </tr>
+}
+
+</table>

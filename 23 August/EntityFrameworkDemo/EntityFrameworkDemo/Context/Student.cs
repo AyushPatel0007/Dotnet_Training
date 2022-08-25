@@ -11,11 +11,15 @@ namespace EntityFrameworkDemo.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
         public int Sid { get; set; }
+        [Required(ErrorMessage="Required")]
         public string Sname { get; set; }
+        [Required(ErrorMessage = "Required")]
+
         public string Semail { get; set; }
         public string Spassword { get; set; }
         public Nullable<int> Departments_Did { get; set; }

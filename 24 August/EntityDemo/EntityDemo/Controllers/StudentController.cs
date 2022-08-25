@@ -67,6 +67,9 @@ namespace EntityDemo.Controllers
             return View("Display",ress);
         }
 
+
+  
+
         public ActionResult Delete(int id)
         {
             var res = db.Students.FirstOrDefault(x => x.Sid == id);

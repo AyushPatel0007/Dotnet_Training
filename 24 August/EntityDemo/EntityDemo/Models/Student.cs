@@ -11,7 +11,8 @@ namespace EntityDemo.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Student
     {
         public int Sid { get; set; }
@@ -19,7 +20,9 @@ namespace EntityDemo.Models
         public string Semail { get; set; }
         public string Spassword { get; set; }
         public Nullable<int> Departments_Did { get; set; }
-    
+
+
+        public HttpPostedFileBase ImageFile { get; set; }
         public virtual Department Department { get; set; }
     }
 }

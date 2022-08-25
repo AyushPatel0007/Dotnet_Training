@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="demo5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Name="Did" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dname" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sname" Type="nvarchar(max)" />
+          <Property Name="Semail" Type="nvarchar(max)" />
+          <Property Name="Spassword" Type="nvarchar(max)" />
+          <Property Name="Departments_Did" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_Students_dbo_Departments_Departments_Did">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Did" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="Departments_Did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeletebyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deletedeptbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Bookid" Type="int" Mode="In" />
+          <Parameter Name="Bookname" Type="varchar" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="Publisher" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="did" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Bookid" Type="int" Mode="In" />
+          <Parameter Name="Bookname" Type="varchar" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="Publisher" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdatebyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="did" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="demo5ModelStoreContainer">
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Students_dbo_Departments_Departments_Did" Association="Self.FK_dbo_Students_dbo_Departments_Departments_Did">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="demo5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Name="Did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_dbo_Students_dbo_Departments_Departments_Did" FromRole="Departments" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Semail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Spassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Departments_Did" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_dbo_Students_dbo_Departments_Departments_Did" FromRole="Students" ToRole="Departments" />
+        </EntityType>
+        <Association Name="FK_dbo_Students_dbo_Departments_Departments_Did">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Did" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="Departments_Did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <AssociationSet Name="FK_dbo_Students_dbo_Departments_Departments_Did" Association="Self.FK_dbo_Students_dbo_Departments_Departments_Did">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteBook">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeletebyId">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBook">
+            <Parameter Name="Bookid" Mode="In" Type="Int32" />
+            <Parameter Name="Bookname" Mode="In" Type="String" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="Publisher" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertStudent">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="did" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectBook" ReturnType="Collection(demo5Model.SelectBook_Result)" />
+          <FunctionImport Name="SelectbyId" ReturnType="Collection(demo5Model.SelectbyId_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectStudent" ReturnType="Collection(demo5Model.SelectStudent_Result)" />
+          <FunctionImport Name="UpdateBook">
+            <Parameter Name="Bookid" Mode="In" Type="Int32" />
+            <Parameter Name="Bookname" Mode="In" Type="String" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="Publisher" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatebyId">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="did" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDepartment">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectDepartment" ReturnType="Collection(demo5Model.SelectDepartment_Result)" />
+          <FunctionImport Name="deletedeptbyid">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SelectBook_Result">
+          <Property Type="Int32" Name="Bookid" Nullable="false" />
+          <Property Type="String" Name="Bookname" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Publisher" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SelectbyId_Result">
+          <Property Type="Int32" Name="Sid" Nullable="false" />
+          <Property Type="String" Name="Sname" Nullable="true" />
+          <Property Type="String" Name="Semail" Nullable="true" />
+          <Property Type="String" Name="Spassword" Nullable="true" />
+          <Property Type="Int32" Name="Departments_Did" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SelectStudent_Result">
+          <Property Type="Int32" Name="Sid" Nullable="false" />
+          <Property Type="String" Name="Sname" Nullable="true" />
+          <Property Type="String" Name="Semail" Nullable="true" />
+          <Property Type="String" Name="Spassword" Nullable="true" />
+          <Property Type="Int32" Name="Departments_Did" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SelectDepartment_Result">
+          <Property Type="Int32" Name="Did" Nullable="false" />
+          <Property Type="String" Name="Dname" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="demo5ModelStoreContainer" CdmEntityContainer="DbbEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="demo5Model.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="Did" ColumnName="Did" />
+                <ScalarProperty Name="Dname" ColumnName="Dname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="demo5Model.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Semail" ColumnName="Semail" />
+                <ScalarProperty Name="Spassword" ColumnName="Spassword" />
+                <ScalarProperty Name="Departments_Did" ColumnName="Departments_Did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteBook" FunctionName="demo5Model.Store.DeleteBook" />
+          <FunctionImportMapping FunctionImportName="DeletebyId" FunctionName="demo5Model.Store.DeletebyId" />
+          <FunctionImportMapping FunctionImportName="InsertBook" FunctionName="demo5Model.Store.InsertBook" />
+          <FunctionImportMapping FunctionImportName="InsertStudent" FunctionName="demo5Model.Store.InsertStudent" />
+          <FunctionImportMapping FunctionImportName="SelectBook" FunctionName="demo5Model.Store.SelectBook">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="demo5Model.SelectBook_Result">
+                <ScalarProperty Name="Bookid" ColumnName="Bookid" />
+                <ScalarProperty Name="Bookname" ColumnName="Bookname" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectbyId" FunctionName="demo5Model.Store.SelectbyId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="demo5Model.SelectbyId_Result">
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Semail" ColumnName="Semail" />
+                <ScalarProperty Name="Spassword" ColumnName="Spassword" />
+                <ScalarProperty Name="Departments_Did" ColumnName="Departments_Did" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectStudent" FunctionName="demo5Model.Store.SelectStudent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="demo5Model.SelectStudent_Result">
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Semail" ColumnName="Semail" />
+                <ScalarProperty Name="Spassword" ColumnName="Spassword" />
+                <ScalarProperty Name="Departments_Did" ColumnName="Departments_Did" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateBook" FunctionName="demo5Model.Store.UpdateBook" />
+          <FunctionImportMapping FunctionImportName="UpdatebyId" FunctionName="demo5Model.Store.UpdatebyId" />
+          <FunctionImportMapping FunctionImportName="InsertDepartment" FunctionName="demo5Model.Store.InsertDepartment" />
+          <FunctionImportMapping FunctionImportName="SelectDepartment" FunctionName="demo5Model.Store.SelectDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="demo5Model.SelectDepartment_Result">
+                <ScalarProperty Name="Did" ColumnName="Did" />
+                <ScalarProperty Name="Dname" ColumnName="Dname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="deletedeptbyid" FunctionName="demo5Model.Store.deletedeptbyid" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

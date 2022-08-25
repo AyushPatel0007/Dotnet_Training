@@ -16,6 +16,27 @@ namespace EntityFrameworkDemo.Controllers
         {
             return View();
         }
+
+        
+
+        public ActionResult DepartmentForm()
+        {
+                 return View();
+        }
+        [HttpPost]
+        public ActionResult RegisterDepartment(Department du)
+        {
+            db.Departments.Add(du);
+            db.SaveChanges();
+            return View("DepartmentForm");
+        }
+        public ActionResult DeleteDept(int id)
+        {
+           var res=db.Departments.Where(x=>x.Did==id).FirstOrDefault();
+            db.Departments.Remove(res);
+            db.SaveChanges();
+            return View("DepartmentForm");
+        }
         public ActionResult StudentForm(Student stu)
         {
             if (stu != null)
@@ -24,29 +45,46 @@ namespace EntityFrameworkDemo.Controllers
                 return View();
         }
         [HttpPost]
-        public string Register(Student stu)
+        public ActionResult Register(Student stu)
         {
-            Student st = new Student();
-            st.Sname = stu.Sname;
-            st.Semail = stu.Semail;
-            st.Spassword = stu.Spassword;
-            st.Departments_Did = stu.Departments_Did;
-            var res = db.Students.Where(x => x.Sid == stu.Sid).FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                var k = db.Departments.FirstOrDefault(x => x.Did == stu.Departments_Did);
+                if (k != null)
+                {
+                    Student st = new Student();
+                    st.Sname = stu.Sname;
+                    st.Semail = stu.Semail;
+                    st.Spassword = stu.Spassword;
+                    st.Departments_Did = stu.Departments_Did;
+                    var res = db.Students.Where(x => x.Sid == stu.Sid).FirstOrDefault();
 
-            if (res ==null) { 
-            
-                    db.Students.Add(st);
-                    db.SaveChanges();
+                    if (res == null)
+                    {
+
+                        db.Students.Add(st);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        res.Sname = stu.Sname;
+                        res.Semail = stu.Semail;
+                        res.Spassword = stu.Spassword;
+                        res.Departments_Did = stu.Departments_Did;
+                        db.SaveChanges();
+                    }
+                    var sres = db.Students.ToList();
+                    return View("StudentList", sres);
+                }
+                else
+                {
+                    return View("DepartmentForm");
+                }
             }
             else
             {
-                res.Sname = stu.Sname;
-                res.Semail = stu.Semail;
-                res.Spassword = stu.Spassword;
-                res.Departments_Did = stu.Departments_Did;
-                db.SaveChanges();
+                return View("DepartmentForm");
             }
-            return "Added Successfull";
         }
 
         public ActionResult StudentList()

@@ -43,7 +43,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Departments_Did, "Departments_Did", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Departments_Did, new { htmlAttributes = new { @class = "form-control" } })
+                @{
+                    EntityFrameworkDemo.Context.DbEntities db = new EntityFrameworkDemo.Context.DbEntities();
+                    var sel = db.Departments.Select(x => x.Did);
+                }
+                @Html.DropDownListFor(m=>m.Departments_Did,new SelectList(sel),"Select Dept Id")
                 @Html.ValidationMessageFor(model => model.Departments_Did, "", new { @class = "text-danger" })
             </div>
         </div>
