@@ -8,7 +8,7 @@ using Image.Models;
 
 namespace Image.Controllers
 {
-    [Authorize]
+    
     public class StudentController : Controller
     {
         // GET: Student
@@ -34,6 +34,7 @@ namespace Image.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult ImagesView()
         {
 
