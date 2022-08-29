@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Filter_Authent.Models;
 
+
+
+
 namespace Filter_Authent.Controllers
 {
     [Authorize]
@@ -55,6 +58,7 @@ namespace Filter_Authent.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;

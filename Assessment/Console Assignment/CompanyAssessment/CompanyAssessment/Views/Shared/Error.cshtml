@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("ViewAllEmployee", "ViewAllEmployee", "Company")</li>
+            <li>@Html.ActionLink("AddEmployee", "AddEmployee", "Company")</li>
+            <li>@Html.ActionLink("AddDepartment", "AddDepartment", "Company")</li>
+
+        </ul>
+    </div>
+
+
+    <hgroup>
+        <h1>Error.</h1>
+        <h3>Here is error -> @Model.Exception.Message</h3>
+    </hgroup>
+
+
+</body>
+</html>
