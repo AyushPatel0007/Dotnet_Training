@@ -11,10 +11,8 @@
 </p>
 <table class="table">
     <tr>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.Departments_DeptId)
-        </th>
+
+
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -27,18 +25,22 @@
         <th>
             @Html.DisplayNameFor(model => model.Salary)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departments_DeptId)
+        </th>
+        <th>
+            @Html.DisplayName("Field Edit")
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-       
-        <th>
-            @Html.DisplayFor(modelItem => item.Departments_DeptId)
-        </th>
+
+
         <td>
             @Html.DisplayFor(modelItem => item.Name)
- 
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Gender)
@@ -49,6 +51,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Salary)
         </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Departments_DeptId)
+        </th>
         <td>
             @Html.ActionLink("Edit", "UpdateEmployee", new { id = item.EmpId }) |
             @Html.ActionLink("Details", "GetEmployee", new { id = item.EmpId }) |

@@ -16,6 +16,8 @@ namespace CompanyAssessment.Models
 
         public string Name { get; set; }
         [Required(ErrorMessage = "Enter the field")]
+        [RegularExpression("male|female", ErrorMessage = "The Gender must be either 'male' or 'female' only.")]
+
         public string Gender { get; set; }
         [Required(ErrorMessage = "Enter the field")]
         [RegularExpression("^[a-zA-Z ]*$",ErrorMessage ="Enter only alphabets")]

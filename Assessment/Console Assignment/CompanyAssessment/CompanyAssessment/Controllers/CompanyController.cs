@@ -80,8 +80,8 @@ namespace CompanyAssessment.Controllers
         public ActionResult ViewAllEmployee()
         {
 
-            //Collection Use
-            List<Employee> res = db.Employees.ToList();
+            //Collection res and stores procedure
+            List<Employee> res = db.Database.SqlQuery<Employee>("exec SelectEmployee").ToList();
             if (res == null)
             {
                 throw new NullDataFound();
