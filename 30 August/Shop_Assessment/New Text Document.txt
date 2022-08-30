@@ -1,0 +1,69 @@
+select * from users
+select * from products
+select * from carts
+
+create proc InsertProduct
+@n varchar(20),
+@p int,
+@cid int
+as
+begin
+insert into Products values(@n,@p,@cid)
+end
+
+create proc UpdateProduct
+@id int,
+@n varchar(20),
+@p int,
+@cid int
+as
+begin
+update products set Name=@n,Price=@p,Categories_Cid=@cid where Pid=@id
+end
+
+create proc InsertCategory
+@n varchar(20) 
+as
+begin
+insert into Categories values(@n)
+end
+
+
+create proc DeleteProduct
+@id int
+as
+begin
+delete from Products where Pid=@id;
+end
+create proc DeleteCategory
+@id int
+as
+begin
+delete from Categories where Cid=@id;
+end
+
+ 
+ create proc SelectProduct
+as
+begin
+select * from Products
+end
+
+ create proc SelectProductbyId
+ @id int
+as
+begin
+select * from Products where Pid=@id
+end
+
+select * from Categories
+select * from Products
+
+create proc ViewAll
+as
+begin
+select C.Cid,C.Cname,P.Pid,P.Name,P.Price from Products as p Inner Join
+categories as C on P.Categories_cid=C.cid
+end
+
+exec viewall
