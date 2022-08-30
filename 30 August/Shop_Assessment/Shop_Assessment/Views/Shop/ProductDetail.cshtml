@@ -1,0 +1,75 @@
+﻿@model Shop_Assessment.Models.ViewAll
+
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<h2>ProductDetail</h2>
+<script>
+
+
+    $(document).ready(function(){
+        $("input[type='text']").prop("readonly", true);
+
+        $('#btnedit').click(function () {
+            alert("ok");
+
+            var btn = $("#btnedit").val();
+            if (btn == "Edit") {
+                $('#btnedit').val("Update");
+                $("input[type='text']").prop("readonly", false);
+            } else {
+                $("btnedit").prop("type", "submit");
+                $('#btnedit').val("Edit");
+                $("input[type='text']").prop("readonly", true);
+            }
+        })
+    })
+</script>
+
+<div>
+    <h4>ViewAll</h4>
+    <hr />
+    <table>
+        <tr>
+            <th>Cid</th>
+            <th>Pid</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Cname</th>
+        </tr>
+        @foreach (var r in ViewBag.r)
+        {
+            <tr>
+                <td>@r.Cid</td>
+
+                <td>@r.Pid</td>
+
+                <td>@r.Name</td>
+
+                <td>@r.Price</td>
+
+                <td>@r.Cname</td>
+            </tr>
+
+
+
+
+            <form>
+                <tr>
+                    <td>
+                        <input type="text" id="txtname" value="@r.Name" />
+
+                        <input type="text" id="txtprice" value="@r.Price" />
+                        <br />
+                        <input type="button" id="btnedit" value="Edit" />
+                    </td>
+                </tr>
+
+
+            </form>
+        }
+    </table>
+</div>
+<p> 
+</p>
