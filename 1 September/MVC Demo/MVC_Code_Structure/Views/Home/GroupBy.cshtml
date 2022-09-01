@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MVC_Code_Structure.Models.EmployeeModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GroupBy</title>
+</head>
+<body>
+    <div>
+        @foreach (var r in Model)
+        {
+            <h1>@r</h1>
+        }
+    </div>
+</body>
+</html>

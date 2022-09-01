@@ -6,6 +6,17 @@
 
 <h2>Login</h2>
 
+@{ try {
+        if (TempData["msg"] != null)
+        {
+                    <label>@TempData["msg"]</label>
+         }
+      }catch
+            {
+
+            }
+}
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
