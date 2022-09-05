@@ -89,6 +89,7 @@ namespace WebApi_Ui.Controllers
                 }
                 else
                 {
+                    TempData["msg"] = "Invalid UserName or Password";
                     return View();
 
                 }
