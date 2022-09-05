@@ -35,7 +35,7 @@ namespace WebApi_Ui.Controllers
                     webclient.Headers.Add("Content-type:application/json");
                     webclient.Headers.Add("Accept:application/json");
                     string response = webclient.UploadString("https://localhost:44329/InsertData", JsonConvert.SerializeObject(st));
-                    return RedirectToAction("Display");
+                    return RedirectToAction("Login");
                 }
             }
             else

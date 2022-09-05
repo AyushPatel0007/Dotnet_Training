@@ -18,8 +18,7 @@ namespace WebApi_Assessment.Controllers
         [HttpPost]
         [Route("InsertData")]
         public string InsertStudent(StudentModel s)
-        {
-             
+        {             
 
             db.StudentModels.Add(s);
             db.SaveChanges();
