@@ -1,0 +1,100 @@
+﻿    
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://localhost:44349/AjaxAllStudent',
+                 dataType: "json",   
+                 success: function (data) {
+                     $.each(data, function (key, item) {
+                         $("#schoolid").append("<tr><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Password +"</td></tr>")
+                     });
+ 
+                }, failure: function (err) {
+                        console.log(data);
+                    }
+
+                });
+
+
+
+        $('#btnsubmit').click(function () {
+            var email = $('#email').val();
+            var password = $('#password').val();
+            var name = $('#name').val();
+            obj = { Name: name, Email: email, Password: password }
+            $.ajax({
+                method: 'post',
+                url: 'https://localhost:44349//InsertData',
+                dataType: "json",   
+                data: obj,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
+                },
+                success: function (data) {
+                    console.log(data);
+                }, failure: function (err) {
+                    console.log(data);
+                }
+
+            });
+        });
+    });
+    </script>
+
+    <style>
+        td {
+           border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("_card");
+    <partial name="_card"></partial>
+    <partial name="_card1" />
+    <table id="schoolid" style="border:1px solid black;margin:20px">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Id</th>
+        </tr>
+
+    </table>
+
+    <div>
+        <h2>Register</h2>
+        <form id="studentform">
+            <div>
+                <label>Name</label>
+                <input type="text" id="name" />
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="text" id="email" />
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" id="password" />
+            </div>
+            <input type="button" id="btnsubmit" value="submit">
+        </form>
+    </div>
+
+</body>
+</html>

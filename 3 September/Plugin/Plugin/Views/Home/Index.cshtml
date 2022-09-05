@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Home/Create',
+                contentType: 'application/json',
+                dataType: 'text',
+                success: function (data) {
+                    $('#edit').append(data);
+                }, failure: function (err) {
+                    console.log(data);
+                }
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+            $('#btnedit').click(function () {
+                var res = $('#btnedit1').val();
+                obj = {Id:res}
+                $.ajax({
+                    method: 'post',
+                    url: '/Home/Getdata',
+                    data: obj,
+                    success: function (data) {
+                        $('#successid').append(data);
+                    }, failure: function (err) {
+                        console.log(data);
+                    }
+
+                });
+            })
+        });
+    </script>
+    <p id="edit">GetMethod() :</p>
+    <input type="text" id="btnedit1" />
+    <input type="button" id="btnedit" value="Submit" />
+
+    <p>Post_Method()</p> <p id="successid"></p>
+</body>
+</html>

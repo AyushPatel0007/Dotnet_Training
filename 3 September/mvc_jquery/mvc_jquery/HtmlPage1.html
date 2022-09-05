@@ -1,0 +1,112 @@
+﻿
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="/Scripts/Demo.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    
+        <script>
+            $(document).ready(function () {
+                //var ex = $('#txtemail').keyup(function () {
+                //    $("#txtdis").append("key yup");
+                //})
+                //var ex = $('#txtemail').keydown(function () {
+                //    $("#txtdis").append("key down");
+                //})
+                
+                $("#txtpswd").keyup(function () { 
+                    var ex = $('#txtpswd').val();
+                    if (ex.length==0) {
+                        $("#txtdis").html("Enter the password");
+                    } else
+                    if (ex.length < 3 && ex.length >= 1) {
+                        $("#txtdis").html("week password");
+                        $('.lbl').css('background-color', 'white');
+                    } else if (ex.length < 5 && ex.length >= 3) {
+                        $("#txtdis").html("good password");
+                        $('.lbl').css('background-color', 'green');
+
+                    } else if (ex.length < 10 && ex.length > 5) {
+                        $("#txtdis").html("strong password");
+                        $('.lbl').css('background-color', 'blue');
+
+                    } else if (ex.length >=10) {
+                        $("#txtdis").html("verystrong password");
+                        $('.lbl').css('background-color', 'red');
+
+                    }  
+                   
+                });
+
+            });
+          
+    </script>
+
+    <style>
+        .form-control{
+            border:0.9px solid black;
+        }
+            .form-control:hover {
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
+        .btn {
+            width: 90px;
+            border: 0.9px solid black;
+        }
+        .btn:hover {
+            border: 0.9px solid white;
+            background-color: black;
+            color: white;
+        }
+        .lbl {
+            height: 10px;
+            width: 30px;
+            border: 2px solid black;
+        }
+    </style>
+ </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p>Password Strength:</p><p class="lbl">&nbsp;&nbsp;</p><p id="txtdis"></p>
+            <div class="col-sm-6 offset-sm-3">
+                <h2>Login</h2>
+                <form>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="txtemail" />
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="txtpswd"/>
+                    </div>
+                    <div>
+                        <input type="checkbox" /><p>I accept the terms and condition</p>
+                    </div>
+                    <div class="row justify-content-start">
+                             <div class="col-sm-3 ">
+                                <input type="button" value="Login" id="btnlogin" class="btn"/>
+                            </div>
+                         <div class="col-sm-3 ">
+                            <input type="submit" value="Reset" class="btn" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+ <form>
+     
+
+ </form>
+    
+</body>
+</html>

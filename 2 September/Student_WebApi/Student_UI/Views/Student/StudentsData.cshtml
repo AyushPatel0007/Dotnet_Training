@@ -6,6 +6,24 @@
 
 <h2>StudentsData</h2>
 
+<script>
+    $(Document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/Student/StudentsData',
+            data: ''
+            success: function (data) {
+                alert()
+            }, failure: function (err) {
+
+            }
+        })
+
+    });
+
+</script>
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -20,12 +38,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Password)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schools_Sid)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-      
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -36,9 +56,12 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditData", new { id = item.Id }) |
-            @Html.ActionLink("Details", "StudentData", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "DeleteStudent", new { id = item.Id })
+            @Html.DisplayFor(modelItem => item.Schools_Sid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
