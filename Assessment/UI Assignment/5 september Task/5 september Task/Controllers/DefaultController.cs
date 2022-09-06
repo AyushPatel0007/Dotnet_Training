@@ -14,7 +14,7 @@ namespace _5_september_Task.Controllers
 
         [HttpGet]
         [Route("InsertData")]
-        public string InsertData(User s)
+        public string InsertData()
         {
             User u = new User()
             {

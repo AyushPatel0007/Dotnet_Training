@@ -30,12 +30,19 @@ namespace WebApi_Ui.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (WebClient webclient = new WebClient())
+                try
                 {
-                    webclient.Headers.Add("Content-type:application/json");
-                    webclient.Headers.Add("Accept:application/json");
-                    string response = webclient.UploadString("https://localhost:44329/InsertData", JsonConvert.SerializeObject(st));
-                    return RedirectToAction("Login");
+                    using (WebClient webclient = new WebClient())
+                    {
+                        webclient.Headers.Add("Content-type:application/json");
+                        webclient.Headers.Add("Accept:application/json");
+                        string response = webclient.UploadString("https://localhost:44329/InsertData", JsonConvert.SerializeObject(st));
+                        return RedirectToAction("Login");
+                    }
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return View();
                 }
             }
             else
@@ -46,18 +53,18 @@ namespace WebApi_Ui.Controllers
         }
 
         //Home/DisplayAllData
-        [HttpGet]
-        public ActionResult Display()
-        {
-            using (WebClient webclient = new WebClient())
-            {
-                webclient.Headers.Add("Content-type:application/json");
-                webclient.Headers.Add("Accept:application/json");
-                string response = webclient.DownloadString("https://localhost:44329/GetAllStudent");
-                var res = JsonConvert.DeserializeObject<IList<StudentModel>>(response);
-                return View(res);
-            }
-        }
+        //[HttpGet]
+        //public ActionResult Display()
+        //{
+        //    using (WebClient webclient = new WebClient())
+        //    {
+        //        webclient.Headers.Add("Content-type:application/json");
+        //        webclient.Headers.Add("Accept:application/json");
+        //        string response = webclient.DownloadString("https://localhost:44329/GetAllStudent");
+        //        var res = JsonConvert.DeserializeObject<IList<StudentModel>>(response);
+        //        return View(res);
+        //    }
+        //}
 
 
 
@@ -76,23 +83,30 @@ namespace WebApi_Ui.Controllers
         [HttpPost]
         public ActionResult Login(StudentModel st)
         {
-            using (WebClient webclient = new WebClient())
+            try
             {
-                 string url=st.UserName + "/"+st.Password;//pass the email and password
-                 webclient.Headers.Add("Content-type:application/json");
-                webclient.Headers.Add("Accept:application/json");
-                string response = webclient.DownloadString("https://localhost:44329/GetLogin/"+url);
-                var res = JsonConvert.DeserializeObject<int>(response); //coner
-                if (res != 0)
+                using (WebClient webclient = new WebClient())
                 {
-                    return View("Dashboard");
-                }
-                else
-                {
-                    TempData["msg"] = "Invalid UserName or Password";
-                    return View();
+                    string url = st.UserName + "/" + st.Password;//pass the email and password
+                    webclient.Headers.Add("Content-type:application/json");
+                    webclient.Headers.Add("Accept:application/json");
+                    string response = webclient.DownloadString("https://localhost:44329/GetLogin/" + url);
+                    var res = JsonConvert.DeserializeObject<int>(response); //coner
+                    if (res != 0)
+                    {
+                        return View("Dashboard");
+                    }
+                    else
+                    {
+                        TempData["msg"] = "Invalid UserName or Password";
+                        return View();
 
+                    }
                 }
+            }catch(Exception e)
+            {
+                 return HttpNotFound();
+
             }
 
         }

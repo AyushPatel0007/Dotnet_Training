@@ -30,30 +30,30 @@
 
 
 
-        $('#btnsubmit').click(function () {
-            var email = $('#email').val();
-            var password = $('#password').val();
-            var name = $('#name').val();
-            obj = { Name: name, Email: email, Password: password }
-            $.ajax({
-                method: 'post',
-                url: 'https://localhost:44349//InsertData',
-                dataType: "json",   
-                data: obj,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                },
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
-                },
-                success: function (data) {
-                    console.log(data);
-                }, failure: function (err) {
-                    console.log(data);
-                }
+        //$('#btnsubmit').click(function () {
+        //    var email = $('#email').val();
+        //    var password = $('#password').val();
+        //    var name = $('#name').val();
+        //    obj = { Name: name, Email: email, Password: password }
+        //    $.ajax({
+        //        method: 'post',
+        //        url: 'https://localhost:44349//InsertData',
+        //        dataType: "json",   
+        //        data: obj,
+        //        headers: {
+        //            'Access-Control-Allow-Origin': '*',
+        //        },
+        //        beforeSend: function (xhr) {
+        //            xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
+        //        },
+        //        success: function (data) {
+        //            console.log(data);
+        //        }, failure: function (err) {
+        //            console.log(data);
+        //        }
 
-            });
-        });
+        //    });
+        //});
     });
     </script>
 
