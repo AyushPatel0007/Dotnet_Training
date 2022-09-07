@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        
+        function Login() {
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            $.ajax({
+                type: 'Post',
+                data: { grant_type:"password",username: username,password:password},
+                 dataType: 'json',
+                url: 'https://localhost:44375/token',
+                success: function (data) {
+                    alert(data.access_token);
+                    GetPage(data.access_token);
+                },
+                error: function (err) { 
+                    //{"key":"item","key":"item"}
+                    var res = JSON.parse(err.responseText);
+                    console.log(res);
+                    console.log(res.error);
+                    alert(res.error_description);
+                 },
+
+            });
+        }
+
+
+        function GetPage(token) {           
+             
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: 'https://localhost:44375/OnlyAdmin',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                },
+                success: function (data) {
+                    alert(data);
+                },             
+                failure: function (err) {
+                    alert(err);
+                },
+
+            });
+        }
+        
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="username" />
+        <input type="password" id="password" />
+        <input type="button" onclick="Login()" />
+    </div>
+ </body>
+</html>

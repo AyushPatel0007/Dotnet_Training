@@ -1,4 +1,5 @@
 ﻿using Api_Practise_.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,14 @@ namespace Api_Practise_.Controllers
             res.Password = dept.Password;
             db.SaveChanges();
             
+        }
+
+        [HttpGet]
+        [Route("GetValue")]
+        public string GetValue(string[] jArray)
+        {
+           string res= JsonConvert.SerializeObject(jArray);
+            return res;
         }
 
     }

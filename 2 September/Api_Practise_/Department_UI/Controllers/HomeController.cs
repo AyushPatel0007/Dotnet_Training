@@ -88,5 +88,22 @@ namespace Department_UI.Controllers
                 return RedirectToAction("Index");
             }
         }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public void Register(Department1 dt)
+        {
+            using(WebClient webclient=new WebClient())
+            {
+                string[] st = { "ayush", "aman", "ankiu" };
+                 webclient.Headers.Add("Accept:application/json");
+                string res=webclient.UploadString("https://localhost:44306/GetValue", "GET", JsonConvert.SerializeObject(st));
+                Console.WriteLine(res);
+            }
+            
+        }
     }
 }
