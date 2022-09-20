@@ -41,7 +41,7 @@ namespace Shopping_Website_UI.Models
         public int Discount { get; set; }
         public DateTime Publish { get; set; }
          public string Imageurl { get; set; }
-        [Required]
+      
         public string Size { get; set; }
 
 
