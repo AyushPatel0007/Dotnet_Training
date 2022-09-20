@@ -58,7 +58,7 @@ namespace Shopping_Website_UI.Controllers
         }
 
         //pass all the product detail to dropdown
-        [Route("FilterData")]
+    
         public JsonResult GetProductx()
         
         {

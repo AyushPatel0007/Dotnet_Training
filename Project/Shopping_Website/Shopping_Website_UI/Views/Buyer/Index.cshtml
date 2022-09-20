@@ -93,7 +93,16 @@
                 success: function (data) {
 
                     jQuery(data).each(function (i, item) {
+
                         if (item.Id == val) {
+                            $('#modal_productimg').empty();
+                            $('#modalsize').empty();
+                            $('#modalprice').empty();
+                            $('#modalbrand').empty();
+                            $('#modalgender').empty();
+                            $('#modalcategory').empty();
+                            $('#modaldescription').empty();
+                           
                             $('#modal_productimg').attr('src', item.Imageurl);
                             $('#modalsize').append(item.Size);
                             $('#modalprice').append(item.Price);
