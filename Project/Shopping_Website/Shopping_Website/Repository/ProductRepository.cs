@@ -35,6 +35,7 @@ namespace Shopping_Website.Repository
             res.Name = std.Name;
             res.Description = std.Description;
             res.Category = std.Category;
+            res.Gender = std.Gender;
             res.Price = std.Price;
             res.Publish = std.Publish;
             res.Discount = std.Discount;

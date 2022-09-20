@@ -28,6 +28,7 @@ namespace Shopping_Website_UI.Models
         [RegularExpression(@"^[a-zA-Z_ ]+$", ErrorMessage = "Use letters only please")]
         public string Category { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string Gender { get; set; }
 
         [Required]
