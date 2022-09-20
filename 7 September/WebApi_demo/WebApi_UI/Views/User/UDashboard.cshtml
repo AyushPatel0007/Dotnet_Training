@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UDashboard</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        function Logout() {
+            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("username");
+            window.location.href = "https://localhost:44302/Home/Register";
+        }
+        $(document).ready(function () {
+            $('#Username').text(sessionStorage.getItem("username"));
+        })
+    </script>
+</head>
+<body>
+    <div>
+        UserPage
+    </div>
+    <p id="Username"></p>
+    <input type="button" id="btn-logout" onclick="Logout()" value="Logout"/>
+</body>
+</html>

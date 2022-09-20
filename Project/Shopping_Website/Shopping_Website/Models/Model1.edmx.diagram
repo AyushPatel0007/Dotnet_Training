@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1900552ee634f58843aec555d1bbbcc" Name="Diagram1">
+        <EntityTypeShape EntityType="Shopping_DBModel.CartDetail" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shopping_DBModel.Paymentdetail" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shopping_DBModel.ProductDetail" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shopping_DBModel.RoleDetail" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shopping_DBModel.UserDetail" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="Shopping_DBModel.FK__CartDetai__Custo__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Shopping_DBModel.FK__CartDetai__Produ__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Shopping_DBModel.FK__ProductDe__Selle__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="Shopping_DBModel.FK__UserDetail__Role__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

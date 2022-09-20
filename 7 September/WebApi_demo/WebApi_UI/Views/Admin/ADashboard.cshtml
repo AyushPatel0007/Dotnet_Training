@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ADashboard</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        function Logout() {
+            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("username");
+            window.location.href = "https://localhost:44302/Home/Register";
+        }
+        $(document).ready(function () {
+            var username = sessionStorage.getItem("username");
+            $('#Username').text(username);
+            if (sessionStorage.getItem("username")== null && sessionStorage.getItem("token")==null) {
+                window.location.href = "https://localhost:44302/Home/Register";
+            }
+        })
+    </script>
+</head>
+<body>
+    <div> Admin
+    </div>
+    <p id="Username"></p>
+    <input type="button" id="btn-logout" onclick="Logout()" value="Logout"/>
+</body>
+</html>

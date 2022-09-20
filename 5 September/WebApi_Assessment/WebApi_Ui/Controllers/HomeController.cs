@@ -53,18 +53,18 @@ namespace WebApi_Ui.Controllers
         }
 
         //Home/DisplayAllData
-        //[HttpGet]
-        //public ActionResult Display()
-        //{
-        //    using (WebClient webclient = new WebClient())
-        //    {
-        //        webclient.Headers.Add("Content-type:application/json");
-        //        webclient.Headers.Add("Accept:application/json");
-        //        string response = webclient.DownloadString("https://localhost:44329/GetAllStudent");
-        //        var res = JsonConvert.DeserializeObject<IList<StudentModel>>(response);
-        //        return View(res);
-        //    }
-        //}
+        [HttpGet]
+        public ActionResult Display()
+        {
+            using (WebClient webclient = new WebClient())
+            {
+                webclient.Headers.Add("Content-type:application/json");
+                webclient.Headers.Add("Accept:application/json");
+                string response = webclient.DownloadString("https://localhost:44329/GetAllStudent");
+                var res = JsonConvert.DeserializeObject<IList<StudentModel>>(response);
+                return View(res);
+            }
+        }
 
 
 

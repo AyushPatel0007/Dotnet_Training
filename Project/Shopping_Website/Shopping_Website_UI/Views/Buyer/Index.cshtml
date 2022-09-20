@@ -1,0 +1,306 @@
+﻿@using Shopping_Website_UI.Controllers
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Buyer.cshtml";
+}
+
+<h2>Products</h2>
+
+<div class="row">
+    <div class="col-md-2 sidebar">
+        <form class="d-flex">
+            <input class="form-control" type="text" placeholder="category or brand" id="searchproduct">
+            <button class="btn btn-outline-success" type="button" id="searchproductbtn">Search</button>
+            <div id="productlist"></div>
+        </form>
+        <br />
+         
+        <select id="filterGender" class="form-control"><option value="">Select Gender</option></select>
+        <select id="filterBrand" class="form-control"><option value="">Select Brand</option></select>
+        <select id="filterCategory" class="form-control"><option value="">Select Category</option></select>
+        <select id="filterSize" class="form-control"><option value="">Select Size</option></select>
+        <button class="btn btn-outline-success" type="button" id="filterSearch">Filter Search</button>
+
+
+    </div>
+    <div class="col-md-10">
+        <div class="row px-2 py-2">
+
+
+            <div class="products">
+
+            </div>
+        </div>
+ 
+    </div>
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6" id="setdata">
+                        <img width=" 600" height="400" src=" https: //media.istockphoto.com/photos/mens-shirt-picture-id488160041?k =20&m =488160041&s =612x612&w =0&h =OH_-skyES8-aeTvDQHdVDZ6GKLsqp6adFJC8u6O6_UY =" id="modal_productimg">
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+
+                        <h2 id="modalbrand">Brand: </h2>
+                        <h3 id="modalprice">Price: $</h3>
+
+                        <div class="about">
+                            <p >Gender :<span id="modalgender"></span></p>
+                            <p >Size : <span id="modalsize"></span></p>
+                            <p>Category : <span id="modalcategory"></span> </p>
+                        </div>
+
+                        <p id="modaldescription">
+                            Description:
+                        </p>
+                        
+  
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Add To Cart <i class="fa fa-shopping-cart"></i></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+
+    function showmodal(val) {
+         $.ajax({
+                url: '/Buyer/GetProducts',
+                datatype: 'html',
+                method: 'get',
+                success: function (data) {
+
+                    jQuery(data).each(function (i, item) {
+                        if (item.Id == val) {
+                            $('#modal_productimg').attr('src', item.Imageurl);
+                            $('#modalsize').append(item.Size);
+                            $('#modalprice').append(item.Price);
+                            $('#modalbrand').append(item.Name);
+                            $('#modalgender').append(item.Gender);
+                            $('#modalcategory').append(item.Category);
+                            $('#modaldescription').append(item.Description);
+
+                        }
+                       });
+
+                },
+                error: function (err) {
+
+                }
+
+            });
+
+
+    }
+
+
+
+     function getProducts(description) {
+             $.ajax({
+                 url: '/Buyer/GetProducts',
+                datatype: 'html',
+                type: 'get',
+                success: function (data) {
+                    $('.products').empty();
+
+                     jQuery(data).each(function (i, item) {
+
+                        $('.products').append(" <div class='col-md-3'id='show_product' style='float:left;'><div class='product-grid'><div class='product-image'><a href='#' class='image'><img src='" + item.Imageurl + "' class='pic-1' id=" + i + " /></a><span class='product-sale-label' >Sale " + item.Discount + "% </span><ul class='product-links'><li><a onclick='AddinCart(" + item.Id + ")' ><i class='fa fa-shopping-cart'></i></a></li><li><a href='#' data-bs-toggle='modal' data-bs-target='#exampleModal' id='modeldata' onclick='showmodal(" + item.Id + ")'><i class='fa fa-eye'></i></a></li></ul></div><div class='product-content'><h3 class='title' ><a href='#'>" + item.Name + "</a>&nbsp;&nbsp; (Size:" + item.Size + ")</h3><h4 class='title' id='getname'><a href='#'> Description - " + item.Description + "</a></h4><ul class='rating'><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li></ul><div class='price'><span>$" + item.Price + "</span> $" + item.Discount + "</div></div></div></div>");
+                      });
+
+                },
+                error: function (err) {
+
+                }
+
+            });
+    }
+    function AddinCart(id) {
+        $.ajax({
+            url:'/Buyer/AddinCart',
+            datatype: 'html',
+            data: {id:id},
+            type: 'get',
+            success: function (data) {
+                swal("Product Added in Cart");
+
+            },
+            error: function (err) {
+
+            }
+
+        });
+
+    }
+
+
+
+    //search product by description
+    function searchProducts(value) {
+        var htm = "<ul>";
+             $.ajax({
+                 url: '/Buyer/GetProducts',
+                datatype: 'html',
+                type: 'get',
+                 success: function (data) {
+                     $('.products').empty();
+                     jQuery(data).each(function (i, item) {
+                         s = item.Category;
+                         if (s.toLowerCase() == value.toLowerCase() || value.toLowerCase() == item.Name.toLowerCase() || value.toLowerCase() == item.Gender.toLowerCase()) {
+                             $('.products').append(" <div class='col-md-3'id='show_product' style='float:left;'><div class='product-grid'><div class='product-image'><a href='#' class='image'><img src='" + item.Imageurl + "' class='pic-1' id=" + i + " /></a><span class='product-sale-label' >Sale " + item.Discount + "% </span><ul class='product-links'><li><a onclick='AddinCart(" + item.Id + ")' ><i class='fa fa-shopping-cart'></i></a></li><li><a href='#' data-bs-toggle='modal' data-bs-target='#exampleModal' id='modeldata' onclick='showmodal(" + item.Id + ")'><i class='fa fa-eye'></i></a></li></ul></div><div class='product-content'><h3 class='title' ><a href='#'>" + item.Name + "</a>&nbsp;&nbsp; (Size:" + item.Size + ")</h3><h4 class='title' id='getname'><a href='#'> Description - " + item.Description + "</a></h4><ul class='rating'><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li></ul><div class='price'><span>$" + item.Price + "</span> $" + item.Discount + "</div></div></div></div>");
+                         }
+
+
+                     });
+                     if (value == "") {
+                         jQuery(data).each(function (i, item) {
+
+                             $('.products').append(" <div class='col-md-3'id='show_product' style='float:left;'><div class='product-grid'><div class='product-image'><a href='#' class='image'><img src='" + item.Imageurl + "' class='pic-1' id=" + i + " /></a><span class='product-sale-label' >Sale " + item.Discount + "% </span><ul class='product-links'><li><a onclick='AddinCart(" + item.Id + ")' ><i class='fa fa-shopping-cart'></i></a></li><li><a href='#' data-bs-toggle='modal' data-bs-target='#exampleModal' id='modeldata' onclick='showmodal(" + item.Id + ")'><i class='fa fa-eye'></i></a></li></ul></div><div class='product-content'><h3 class='title' ><a href='#'>" + item.Name + "</a>&nbsp;&nbsp; (Size:" + item.Size + ")</h3><h4 class='title' id='getname'><a href='#'> Description - " + item.Description + "</a></h4><ul class='rating'><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li></ul><div class='price'><span>$" + item.Price + "</span> $" + item.Discount + "</div></div></div></div>");
+
+
+
+                         });
+                     }
+
+
+
+                },
+                error: function (err) {
+
+                }
+
+            });
+    }
+
+    function filterSearch() {
+        var brand = $('#filterBrand').val();
+        var category = $('#filterCategory').val();
+        var gender = $('#filterGender').val();
+        var size = $('#filterSize').val();
+        
+              $.ajax({
+                  url: '/Buyer/GetProducts',
+                datatype: 'html',
+                type: 'get',
+                 success: function (data) {
+                     
+                    $('.products').empty();
+                     var k = 0;
+                    jQuery(data).each(function (i, item) {
+                        if (item.Name == brand && item.Gender == gender && item.Size == size && item.Category == category) {
+
+                            $('.products').append(" <div class='col-md-3'id='show_product' style='float:left;'><div class='product-grid'><div class='product-image'><a href='#' class='image'><img src='" + item.Imageurl + "' class='pic-1' id=" + i + " /></a><span class='product-sale-label' >Sale " + item.Discount + "% </span><ul class='product-links'><li><a onclick='AddinCart(" + item.Id + ")' ><i class='fa fa-shopping-cart'></i></a></li><li><a href='#' data-bs-toggle='modal' data-bs-target='#exampleModal' id='modeldata' onclick='showmodal(" + item.Id + ")'><i class='fa fa-eye'></i></a></li></ul></div><div class='product-content'><h3 class='title' ><a href='#'>" + item.Name + "</a>&nbsp;&nbsp; (Size:" + item.Size + ")</h3><h4 class='title' id='getname'><a href='#'> Description - " + item.Description + "</a></h4><ul class='rating'><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li><li class='fas fa-star'></li></ul><div class='price'><span>$" + item.Price + "</span> $" + item.Discount + "</div></div></div></div>");
+                           
+                            k = k + 1;
+                         }
+                        
+                    });
+                     if (k == 0) {
+                         $('.products').append("<h1>No Data Found</h1>")
+                     }
+
+
+
+                },
+                error: function (err) {
+
+                }
+
+            });
+    }
+
+    $(document).ready(function () {
+
+        getProducts();
+        $('#searchproduct').keyup(function () {
+            searchProducts($('#searchproduct').val());
+        });
+
+        $('#filterSearch').click(function () {
+            filterSearch();
+
+        })
+
+        var g="";
+        var c="";
+        var b="";
+        var s="";
+        var garray = [];
+        var carray = [];
+        var barray = [];
+        var sarray = [];
+
+        $.ajax({
+            url: '/Buyer/GetProductx',
+            datatype: 'html',
+            method: 'get',
+            success: function (data) {
+
+                jQuery(data).each(function (i, item) {
+                    if (jQuery.inArray(item.Gender.toLowerCase(), garray) == -1) {
+                        g += "<option value=" + item.Gender + ">" + item.Gender + "</option>";
+                        garray.push(item.Gender.toLowerCase());
+
+                    }
+                    if (jQuery.inArray(item.Category.toLowerCase(), carray) == -1) {
+                        c += "<option value=" + item.Category + ">" + item.Category + "</option>";
+                        carray.push(item.Category.toLowerCase());
+
+                    }
+                    if (jQuery.inArray(item.Name.toLowerCase(), barray) == -1) {
+                        b += "<option value=" + item.Name + ">" + item.Name + "</option>";
+                        barray.push(item.Name.toLowerCase());
+
+                    }
+                    if (jQuery.inArray(item.Size.toLowerCase(), sarray) == -1) {
+                        s += "<option value=" + item.Size + ">" + item.Size + "</option>";
+                        sarray.push(item.Size.toLowerCase());
+
+                    }
+
+
+
+                  
+                   
+                  
+                   
+                });
+                $('#filterBrand').append(b);
+                $('#filterCategory').append(c);
+                $('#filterSize').append(s);
+                $('#filterGender').append(g);
+
+
+
+            },
+            error: function (err) {
+
+            }
+
+        });
+    });
+</script>
+
+

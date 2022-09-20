@@ -1,0 +1,39 @@
+﻿@model Shopping_Website_UI.Models.UserDetails
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Seller.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+
+
+
+        <div class="card" style="width: 18rem;">
+
+
+            <img src="https://www.citypng.com/public/uploads/preview/profile-user-round-black-icon-symbol-hd-png-11639594326nxsyvfnkg9.png" class="card-img-top" alt="..." width="80" style="padding:20px;">
+            <div class="card-body">
+                <h5 class="card-title"> @Html.DisplayNameFor(model => model.Username) : @Html.DisplayFor(model => model.Username, new { htmlAttributes = new { @readonly = "readonly" } })</h5>
+                <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@Html.DisplayNameFor(model => model.Email) : @Html.DisplayFor(model => model.Email)</li>
+                <li class="list-group-item">@Html.DisplayNameFor(model => model.Address) : @Html.DisplayFor(model => model.Address)</li>
+                <li class="list-group-item">@Html.DisplayNameFor(model => model.Contactno) : @Html.DisplayFor(model => model.Contactno)</li>
+            </ul>
+            <div class="card-body">
+                <button class="btn btn-light"> @Html.ActionLink("Edit", "EditProfile", new { id = Model.Id })  </button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>

@@ -17,6 +17,12 @@ namespace Image.Controllers
         }
         public ActionResult Login()
         {
+            HttpCookie httpcookie = new HttpCookie("Global");//persistant cookie
+            httpcookie.Expires = DateTime.Now.AddDays(1);
+            httpcookie["shop"] = "Adidas";
+            Response.Cookies.Add(httpcookie);
+
+
              return View();
            
         }

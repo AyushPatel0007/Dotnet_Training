@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Shopping_Website_UI.Models.ProductDetail>
+
+@{
+    ViewBag.Title = "ShowData";
+    Layout = "~/Views/Shared/_Seller.cshtml";
+}
+
+<h2 class="headingtxt">ShowData</h2>
+<div class="row" style="margin:10px;">
+
+    @foreach (var item in Model)
+    {
+
+
+     
+ 
+                   
+                <div class="card formtxt" style="float:left;margin:22px; width: 19rem;">
+                    <img src="@item.Imageurl" class="card-img-top" alt="Ordered product" />
+                   
+
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Name : @item.Name</li>
+                            <li class="list-group-item">Size : @item.Size</li>
+                            <li class="list-group-item">Category : @item.Category</li>
+                            <li class="list-group-item">Gender : @item.Gender</li>
+                            <li class="list-group-item">Discount : @item.Discount</li>
+                            <li class="list-group-item">Price : @item.Price</li>
+
+
+                        </ul>
+                    </div>
+                    <button class="btn btn-light">@Html.ActionLink("Edit", "UpdateData", new { id = item.Id }) </button>
+
+                </div>
+
+
+ 
+
+
+
+
+
+
+    }
+</div>
+
+
+ 

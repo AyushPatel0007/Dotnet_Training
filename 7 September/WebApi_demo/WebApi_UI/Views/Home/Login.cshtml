@@ -20,7 +20,7 @@
                 type: 'Post',
                 data: { grant_type:"password",username: username,password:password},
                  dataType: 'json',
-                url: 'https://localhost:44375/token',
+                url: 'https://localhost:44307/Buyer/GetProductDetails',
                 success: function (data) {
                     alert(data.access_token);
                     GetPage(data.access_token);
@@ -42,7 +42,7 @@
             $.ajax({
                 type: 'get',
                 dataType: 'json',
-                url: 'https://localhost:44375/OnlyAdmin',
+                url: 'https://localhost:44375/onlyUser',
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                 },
@@ -64,5 +64,7 @@
         <input type="password" id="password" />
         <input type="button" onclick="Login()" />
     </div>
- </body>
+    @ViewBag.r
+<label>@Session["value"] this value</label>
+</body>
 </html>

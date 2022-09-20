@@ -8,11 +8,22 @@ namespace WebApi_UI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Login()
+        public ActionResult Register()
         {
             return View();
         }
+        public ActionResult Login()
+        {
+            Session["value"] = "login vaue";
+            ViewBag.r = "jgcnhgf";
+            return View();
+        }
+        public ActionResult Upload()
+        {
+            return View();
+        }
+       
 
-        
+
     }
 }

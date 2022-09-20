@@ -12,7 +12,7 @@ namespace WebApi_demo.Models
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            context.Validated();
+            context.Validated();//validate the client for authentication
         }
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
@@ -20,8 +20,9 @@ namespace WebApi_demo.Models
             var res = u.ValidateUser(context.UserName, context.Password);
             if (res == null)
             {
-                context.SetError("Invalid ", "Give correct pass/email");
+                context.SetError("Invalid ", "Give correct pass/email"); 
                 return;
+
             }
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim(ClaimTypes.Role, res.Roles));

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+@{ try
+    {
+        if (TempData["msg"] != null)
+        {
+            <script>swal("Bad luck! ", "Invalid Username or Password!", "error")</script>
+        }
+    }
+    catch
+    {
+
+    }
+}
+
+<p>@TempData["str"]</p>
+<div class="row">
+    <div class="col-sm-4 offset-md-4">
+
+        <form action="/Home/Login" method="post" class="formtxt" id="form">
+            <div class="row">
+                <h2 class="headingtxt" id="target">Login     </h2>  
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label headingtxt">Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Username">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label headingtxt">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-light" id="btnlogin">Submit</button>
+        </form>
+
+    </div>
+
+</div>
+ 
+
+<script>
+    $("#btnlogin").click(function (e) {
+        e.preventDefault();
+        var form = $(this).closest('#form');
+
+        setTimeout(function () {
+            form.submit();
+        }, 1000); // in milliseconds
+
+        $("<img src='https://i.stack.imgur.com/kOnzy.gif' height='60' width='60'> ").appendTo("#target");
+    });
+</script>

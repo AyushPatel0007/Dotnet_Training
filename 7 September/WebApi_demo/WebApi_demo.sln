@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_demo", "WebApi_demo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_UI", "WebApi_UI\WebApi_UI.csproj", "{761FFE29-A7B5-485F-8881-214A61910F34}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_core", "WebApi_core\WebApi_core.csproj", "{511D7636-34C0-4688-87D7-530E4127DC18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webclient", "Webclient\Webclient.csproj", "{F237C98B-7728-4928-8773-D02AA5D145C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{761FFE29-A7B5-485F-8881-214A61910F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{761FFE29-A7B5-485F-8881-214A61910F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{761FFE29-A7B5-485F-8881-214A61910F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{511D7636-34C0-4688-87D7-530E4127DC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{511D7636-34C0-4688-87D7-530E4127DC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{511D7636-34C0-4688-87D7-530E4127DC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{511D7636-34C0-4688-87D7-530E4127DC18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F237C98B-7728-4928-8773-D02AA5D145C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F237C98B-7728-4928-8773-D02AA5D145C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F237C98B-7728-4928-8773-D02AA5D145C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F237C98B-7728-4928-8773-D02AA5D145C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
